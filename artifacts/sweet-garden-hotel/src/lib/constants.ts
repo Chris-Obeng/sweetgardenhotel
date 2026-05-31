@@ -2,7 +2,7 @@ export const HOTEL = {
   name: "Sweet Garden Hotel",
   tagline: "A Garden Oasis",
   sub_tagline: "Where Luxury Meets Nature",
-  description: "Nestled in the serene Danyame Estates of Kumasi, Sweet Garden Hotel is a tropical sanctuary where lush gardens meet world-class hospitality. With 50+ luxury rooms, 5 private event spaces, an outdoor pool, spa, and multiple dining venues, we offer premium comfort at an accessible rate — the finest welcome in the Garden City.",
+  description: "Nestled in the serene Danyame Estates of Kumasi, Sweet Garden Hotel is a tropical sanctuary where lush gardens meet world-class hospitality. With 25 beautifully appointed guestrooms, 5 private event spaces, an outdoor pool, spa, and multiple dining venues, we offer premium comfort at an accessible rate — the finest welcome in the Garden City.",
   phone: "+233 54 590 3454",
   address: "Danyame Estates, Kumasi, Ghana",
   location: "Danyame Estates, Kumasi, Ashanti Region, Ghana",
@@ -12,18 +12,18 @@ export const HOTEL = {
 };
 
 export const NAV_LINKS = [
-  { href: "#about", label: "About" },
   { href: "#rooms", label: "Rooms" },
   { href: "#dining", label: "Dining" },
   { href: "#events", label: "Events" },
   { href: "#gallery", label: "Gallery" },
   { href: "#location", label: "Location" },
+  { href: "#about", label: "About" },
 ];
 
 export const ROOMS = [
-  { id: 1, name: "Deluxe Garden Room", description: "A serene retreat with floor-to-ceiling garden views, rainfall shower, and premium bedding.", size: 42, guests: 2, features: ["Garden View", "Rainfall Shower", "King Bed", "Mini Bar", "Smart TV", "Free WiFi"], imagePath: "https://images.unsplash.com/photo-1631049307264-da0ec9d70304?w=800&q=80" },
-  { id: 2, name: "Pool View Suite", description: "Spacious suite with direct pool views, private balcony, and dedicated lounge area.", size: 58, guests: 2, features: ["Pool View", "Private Balcony", "King Bed", "Lounge Area", "24hr Room Service"], imagePath: "https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?w=800&q=80" },
-  { id: 3, name: "Deluxe Twin Room", description: "Elegantly appointed twin room ideal for colleagues or friends, with garden views.", size: 42, guests: 2, features: ["Garden View", "Twin Beds", "Work Desk", "Rainfall Shower", "Smart TV"], imagePath: "https://images.unsplash.com/photo-1611892440504-42a792e24d32?w=800&q=80" },
+  { id: 1, name: "Deluxe Double Room", description: "A serene retreat with garden views, a plush king-size bed, rainfall shower, and premium bedding crafted for deep rest.", size: 38, guests: 2, features: ["Garden View", "King Bed", "Rainfall Shower", "Mini Bar", "Smart TV", "Free WiFi"], imagePath: "https://images.unsplash.com/photo-1631049307264-da0ec9d70304?w=800&q=80" },
+  { id: 2, name: "Deluxe Twin Room", description: "Elegant and versatile — ideal for two guests travelling together, with twin beds and a calming garden outlook.", size: 38, guests: 2, features: ["Garden View", "Twin Beds", "Work Desk", "Rainfall Shower", "Smart TV", "Free WiFi"], imagePath: "https://images.unsplash.com/photo-1611892440504-42a792e24d32?w=800&q=80" },
+  { id: 3, name: "Executive Double Room", description: "Our most refined room — elevated finishes, a king bed, pool or garden view, and dedicated concierge service.", size: 48, guests: 2, features: ["Pool or Garden View", "King Bed", "Premium Amenities", "Lounge Chair", "24hr Room Service", "Free WiFi"], imagePath: "https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?w=800&q=80" },
 ];
 
 export const DINING = [
@@ -73,7 +73,7 @@ export const LOCATION_LANDMARKS = [
 ];
 
 export const STATS = [
-  { number: "50+", label: "Luxury Rooms" },
+  { number: "25", label: "Guest Rooms" },
   { number: "10+", label: "Years of Excellence" },
   { number: "5", label: "Private Event Spaces" },
   { number: "4.8", label: "Guest Rating" },

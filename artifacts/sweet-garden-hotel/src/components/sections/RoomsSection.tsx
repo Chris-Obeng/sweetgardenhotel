@@ -55,13 +55,7 @@ export default function RoomsSection() {
       start: 'top 70%',
       once: true,
       onEnter: () => {
-        gsap.to(cards, {
-          x: 0,
-          opacity: 1,
-          duration: 0.85,
-          stagger: 0.14,
-          ease: 'power3.out',
-        });
+        gsap.to(cards, { x: 0, opacity: 1, duration: 0.85, stagger: 0.14, ease: 'power3.out' });
       }
     });
 
@@ -87,12 +81,12 @@ export default function RoomsSection() {
             Rooms & Suites
           </AnimatedText>
         </div>
-        <div className="shrink-0">
+        <div className="flex gap-3 shrink-0">
           <LiquidButton variant="outline-light">View All</LiquidButton>
         </div>
       </div>
 
-      {/* Drag-to-scroll carousel */}
+      {/* Carousel */}
       <div
         ref={scrollContainerRef}
         className="flex overflow-x-scroll no-scrollbar cursor-grab pl-5 sm:pl-8 lg:pl-12 pr-5 sm:pr-8 gap-5 sm:gap-6 pb-10 snap-x snap-mandatory"
@@ -110,38 +104,33 @@ export default function RoomsSection() {
                 alt={room.name}
                 className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 pointer-events-none"
               />
-              {/* Room size badge */}
-              <div className="absolute top-4 left-4 bg-forest/80 backdrop-blur-sm px-3 py-1.5 font-sans text-[10px] uppercase tracking-wider text-white/90">
+              <div className="absolute top-3 left-3 bg-forest/80 backdrop-blur-sm px-3 py-1.5 font-sans text-[10px] uppercase tracking-wider text-white/90">
                 {room.size} m²
               </div>
             </div>
 
-            <h3 className="font-cormorant text-2xl sm:text-3xl text-white mb-2 sm:mb-3">
+            <h3 className="font-cormorant text-2xl sm:text-[28px] text-white mb-2">
               {room.name}
             </h3>
 
-            <p className="font-cormorant italic text-white/65 text-[17px] sm:text-lg mb-5 leading-relaxed">
+            <p className="font-cormorant italic text-white/60 text-[16px] sm:text-[17px] mb-5 leading-relaxed">
               {room.description}
             </p>
 
-            <div className="flex flex-wrap gap-2 mb-6 sm:mb-8">
+            <div className="flex flex-wrap gap-2 mt-auto">
               {room.features.slice(0, 4).map((feature, i) => (
                 <span
                   key={i}
-                  className="font-sans text-[10px] uppercase tracking-wider text-white/80 px-3 py-1.5 border border-white/20"
+                  className="font-sans text-[10px] uppercase tracking-wider text-white/75 px-3 py-1.5 border border-white/20"
                 >
                   {feature}
                 </span>
               ))}
               {room.features.length > 4 && (
-                <span className="font-sans text-[10px] uppercase tracking-wider text-white/40 px-3 py-1.5 border border-transparent">
+                <span className="font-sans text-[10px] uppercase tracking-wider text-white/35 px-3 py-1.5">
                   +{room.features.length - 4} more
                 </span>
               )}
-            </div>
-
-            <div className="mt-auto">
-              <LiquidButton variant="outline-light">Discover Room</LiquidButton>
             </div>
           </div>
         ))}

@@ -3,6 +3,7 @@ import { gsap, ScrollTrigger } from '@/lib/gsap-config';
 import AnimatedText from '../shared/AnimatedText';
 import SectionLabel from '../shared/SectionLabel';
 import { DINING } from '@/lib/constants';
+import { UtensilsCrossed } from 'lucide-react';
 
 const images = [
   "https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=800&q=80",
@@ -17,43 +18,48 @@ export default function DiningSection() {
   const gridRef = useRef<HTMLDivElement>(null);
   const track1 = useRef<HTMLDivElement>(null);
   const track2 = useRef<HTMLDivElement>(null);
+  const restaurantRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     if (!gridRef.current) return;
     const cards = gridRef.current.querySelectorAll('.dining-card');
-
     gsap.set(cards, { y: 40, opacity: 0 });
 
-    const trigger = ScrollTrigger.create({
+    const triggerCards = ScrollTrigger.create({
       trigger: gridRef.current,
       start: 'top 80%',
       once: true,
       onEnter: () => {
-        gsap.to(cards, {
-          y: 0,
-          opacity: 1,
-          duration: 0.8,
-          stagger: 0.14,
-          ease: 'power3.out',
-        });
+        gsap.to(cards, { y: 0, opacity: 1, duration: 0.8, stagger: 0.14, ease: 'power3.out' });
       }
     });
 
-    // Smooth GSAP marquee (instead of CSS animation)
-    const speed = 60; // px per second
+    if (restaurantRef.current) {
+      gsap.set(restaurantRef.current, { y: 20, opacity: 0 });
+      ScrollTrigger.create({
+        trigger: restaurantRef.current,
+        start: 'top 85%',
+        once: true,
+        onEnter: () => {
+          gsap.to(restaurantRef.current, { y: 0, opacity: 1, duration: 0.8, ease: 'power3.out' });
+        }
+      });
+    }
+
+    // Smooth GSAP marquee
+    const speed = 55;
     let xPos1 = 0;
     let xPos2 = 0;
-    let width = 0;
+    let trackWidth = 0;
 
-    const measureAndAnimate = () => {
-      if (!track1.current || !track2.current) return;
-      width = track1.current.scrollWidth;
-      xPos2 = width;
+    const init = () => {
+      if (!track1.current) return;
+      trackWidth = track1.current.scrollWidth;
+      xPos2 = trackWidth;
       gsap.set(track1.current, { x: xPos1 });
       gsap.set(track2.current, { x: xPos2 });
     };
-
-    measureAndAnimate();
+    init();
 
     let raf: number;
     let last = performance.now();
@@ -63,8 +69,8 @@ export default function DiningSection() {
       last = now;
       xPos1 -= speed * dt;
       xPos2 -= speed * dt;
-      if (track1.current && xPos1 <= -width) xPos1 = xPos2 + width;
-      if (track2.current && xPos2 <= -width) xPos2 = xPos1 + width;
+      if (xPos1 <= -trackWidth) xPos1 = xPos2 + trackWidth;
+      if (xPos2 <= -trackWidth) xPos2 = xPos1 + trackWidth;
       if (track1.current) gsap.set(track1.current, { x: xPos1 });
       if (track2.current) gsap.set(track2.current, { x: xPos2 });
       raf = requestAnimationFrame(tick);
@@ -72,13 +78,14 @@ export default function DiningSection() {
     raf = requestAnimationFrame(tick);
 
     return () => {
-      trigger.kill();
+      triggerCards.kill();
       cancelAnimationFrame(raf);
     };
   }, []);
 
   return (
     <section id="dining" className="bg-cream py-24 sm:py-32 lg:py-40 overflow-hidden">
+      {/* Section Header */}
       <div className="px-5 sm:px-8 lg:px-12 mb-10 sm:mb-14 max-w-7xl mx-auto">
         <SectionLabel label="Dining" variant="light" />
         <AnimatedText
@@ -92,23 +99,40 @@ export default function DiningSection() {
         </p>
       </div>
 
-      {/* GSAP-driven infinite marquee */}
-      <div className="relative flex overflow-hidden bg-cream-dark py-4 mb-16 sm:mb-24 border-y border-border-light">
-        <div className="absolute inset-0 flex">
-          <div
-            ref={track1}
-            className="shrink-0 whitespace-nowrap font-sans text-[11px] uppercase tracking-[0.22em] text-ink-faint"
-          >
-            {marqueeText}
+      {/* Restaurant highlight bar */}
+      <div ref={restaurantRef} className="px-5 sm:px-8 lg:px-12 mb-10 sm:mb-12 max-w-7xl mx-auto">
+        <div className="bg-forest px-6 sm:px-10 py-5 sm:py-6 flex flex-col sm:flex-row sm:items-center justify-between gap-4 sm:gap-8">
+          <div className="flex items-center gap-4">
+            <div className="w-10 h-10 rounded-full border border-gold/40 flex items-center justify-center shrink-0">
+              <UtensilsCrossed size={16} strokeWidth={1.5} className="text-gold" />
+            </div>
+            <div>
+              <div className="font-sans text-[10px] uppercase tracking-[0.2em] text-gold mb-0.5">On-site Restaurant</div>
+              <div className="font-cormorant text-xl sm:text-2xl text-white leading-none">
+                Sweet Garden Main Restaurant
+              </div>
+            </div>
           </div>
-          <div
-            ref={track2}
-            className="absolute top-1/2 -translate-y-1/2 shrink-0 whitespace-nowrap font-sans text-[11px] uppercase tracking-[0.22em] text-ink-faint"
-          >
-            {marqueeText}
+          <div className="flex flex-wrap gap-x-6 gap-y-1 sm:justify-end">
+            {['Breakfast · 7am – 10am', 'Lunch · 12pm – 3pm', 'Dinner · 6pm – 10pm'].map((t) => (
+              <span key={t} className="font-sans text-[11px] text-white/55 uppercase tracking-wider">{t}</span>
+            ))}
           </div>
         </div>
-        <div className="invisible whitespace-nowrap font-sans text-[11px] uppercase tracking-[0.22em]" aria-hidden>
+      </div>
+
+      {/* Fixed-height marquee strip — both tracks vertically centered */}
+      <div className="relative h-10 overflow-hidden bg-cream-dark mb-16 sm:mb-24 border-y border-border-light">
+        <div
+          ref={track1}
+          className="absolute top-1/2 -translate-y-1/2 whitespace-nowrap font-sans text-[11px] uppercase tracking-[0.22em] text-ink-faint"
+        >
+          {marqueeText}
+        </div>
+        <div
+          ref={track2}
+          className="absolute top-1/2 -translate-y-1/2 whitespace-nowrap font-sans text-[11px] uppercase tracking-[0.22em] text-ink-faint"
+        >
           {marqueeText}
         </div>
       </div>

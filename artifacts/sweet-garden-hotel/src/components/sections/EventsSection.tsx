@@ -1,6 +1,7 @@
 import { useEffect, useRef } from 'react';
 import { gsap, ScrollTrigger } from '@/lib/gsap-config';
 import AnimatedText from '../shared/AnimatedText';
+import SectionLabel from '../shared/SectionLabel';
 import LiquidButton from '../ui/LiquidButton';
 import { EVENTS, PRIVATE_SPACES } from '@/lib/constants';
 
@@ -8,6 +9,7 @@ export default function EventsSection() {
   const containerRef = useRef<HTMLElement>(null);
   const carouselRef = useRef<HTMLDivElement>(null);
   const spacesGridRef = useRef<HTMLDivElement>(null);
+  const copyRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     if (!carouselRef.current) return;
@@ -47,6 +49,18 @@ export default function EventsSection() {
     slider.addEventListener('mouseup', onMouseUp);
     slider.addEventListener('mousemove', onMouseMove);
 
+    if (copyRef.current) {
+      gsap.set(copyRef.current, { y: 20, opacity: 0 });
+      ScrollTrigger.create({
+        trigger: copyRef.current,
+        start: 'top 85%',
+        once: true,
+        onEnter: () => {
+          gsap.to(copyRef.current, { y: 0, opacity: 1, duration: 0.8, ease: 'power3.out' });
+        }
+      });
+    }
+
     const cards = slider.querySelectorAll('.event-card');
     gsap.set(cards, { opacity: 0, x: 40 });
 
@@ -83,17 +97,32 @@ export default function EventsSection() {
 
   return (
     <section id="events" ref={containerRef} className="bg-forest py-24 sm:py-32 lg:py-40 text-white overflow-hidden">
-      <div className="px-5 sm:px-8 lg:px-12 max-w-7xl mx-auto mb-12 sm:mb-16 flex flex-col sm:flex-row sm:items-end justify-between gap-6">
-        <div>
-          <AnimatedText
-            as="h2"
-            className="font-cormorant text-[clamp(38px,5.5vw,80px)] leading-[1.1] tracking-[-0.015em]"
-          >
-            Private Events & Gatherings
-          </AnimatedText>
+
+      {/* Header + copy */}
+      <div className="px-5 sm:px-8 lg:px-12 max-w-7xl mx-auto mb-12 sm:mb-16">
+        <div className="flex flex-col sm:flex-row sm:items-start justify-between gap-6 sm:gap-12 mb-8 sm:mb-10">
+          <div className="flex-1">
+            <SectionLabel label="Private Venues" variant="dark" />
+            <AnimatedText
+              as="h2"
+              className="font-cormorant text-[clamp(38px,5.5vw,80px)] leading-[1.1] tracking-[-0.015em]"
+            >
+              Private Events & Gatherings
+            </AnimatedText>
+          </div>
+          <div className="shrink-0 sm:pt-10">
+            <LiquidButton variant="outline-light">View All Spaces</LiquidButton>
+          </div>
         </div>
-        <div className="shrink-0">
-          <LiquidButton variant="outline-light">View All Spaces</LiquidButton>
+
+        {/* Compelling copy */}
+        <div ref={copyRef} className="max-w-2xl border-l-2 border-gold/50 pl-5 sm:pl-6">
+          <p className="font-cormorant italic text-[clamp(18px,1.8vw,22px)] text-white/80 leading-relaxed mb-3">
+            Your milestones deserve a beautiful setting.
+          </p>
+          <p className="font-sans text-[13px] sm:text-[14px] text-white/55 font-light leading-[1.75] max-w-xl">
+            From boardroom meetings and birthday celebrations to bridal showers and romantic proposal nights — our five private venues are dressed to impress. Beautifully styled, expertly catered, and priced to make luxury accessible. Because every occasion, big or small, deserves to feel extraordinary.
+          </p>
         </div>
       </div>
 
@@ -106,13 +135,17 @@ export default function EventsSection() {
         {EVENTS.map((event) => (
           <div key={event.id} className="event-card shrink-0 w-[78vw] sm:w-[52vw] md:w-[36vw] lg:w-[26vw] snap-start flex flex-col">
             <div className="w-full aspect-[3/4] mb-5 overflow-hidden">
-              <img src={event.imagePath} alt={event.title} className="w-full h-full object-cover pointer-events-none transition-transform duration-700 hover:scale-105" />
+              <img
+                src={event.imagePath}
+                alt={event.title}
+                className="w-full h-full object-cover pointer-events-none transition-transform duration-700 hover:scale-105"
+              />
             </div>
             <div className="font-sans text-[10px] uppercase tracking-[0.2em] text-emerald-pale mb-2">
               {event.category}
             </div>
             <h3 className="font-cormorant text-2xl lg:text-[28px] mb-3">{event.title}</h3>
-            <p className="font-sans text-[13px] sm:text-[14px] text-white/60 font-light leading-relaxed">{event.description}</p>
+            <p className="font-sans text-[13px] sm:text-[14px] text-white/55 font-light leading-relaxed">{event.description}</p>
           </div>
         ))}
       </div>

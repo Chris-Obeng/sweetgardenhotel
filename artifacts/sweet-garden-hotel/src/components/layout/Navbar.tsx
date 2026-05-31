@@ -2,6 +2,7 @@ import { useEffect, useState, useRef } from 'react';
 import { Link } from 'wouter';
 import { gsap } from '@/lib/gsap-config';
 import LiquidButton from '../ui/LiquidButton';
+import HotelLogo from '../ui/HotelLogo';
 import { NAV_LINKS, HOTEL } from '@/lib/constants';
 
 export default function Navbar() {
@@ -33,7 +34,7 @@ export default function Navbar() {
       gsap.to(mobileMenuRef.current, {
         clipPath: 'inset(0 0 0% 0)',
         duration: 0.7,
-        ease: 'power4.inOut'
+        ease: 'power4.inOut',
       });
       const links = mobileLinksRef.current.querySelectorAll('.mobile-link');
       gsap.fromTo(links,
@@ -45,7 +46,7 @@ export default function Navbar() {
       gsap.to(mobileMenuRef.current, {
         clipPath: 'inset(0 0 100% 0)',
         duration: 0.7,
-        ease: 'power4.inOut'
+        ease: 'power4.inOut',
       });
     }
 
@@ -56,22 +57,21 @@ export default function Navbar() {
     ? 'bg-cream/95 backdrop-blur-md border-b border-border-light h-[60px]'
     : 'bg-transparent h-[68px]';
 
-  const logoColor = scrolled ? 'text-ink' : 'text-white';
-  const logoAccent = scrolled ? 'text-emerald' : 'text-gold';
-  const linkColor = scrolled ? 'text-ink hover:text-emerald' : 'text-white/90 hover:text-white';
+  const linkColor = scrolled
+    ? 'text-ink hover:text-emerald'
+    : 'text-white/90 hover:text-white';
 
   return (
     <>
       <nav ref={navRef} className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 flex items-center px-5 sm:px-8 lg:px-12 ${navClass}`}>
         {/* Logo */}
         <div className="flex-1 min-w-0">
-          <Link href="/" className="inline-flex flex-col">
-            <span className={`font-cormorant font-light text-xl sm:text-2xl leading-none ${logoColor} transition-colors duration-300`}>
-              Sweet Garden
-            </span>
-            <span className={`font-sans text-[8px] sm:text-[9px] uppercase tracking-[0.2em] font-medium ${logoAccent} transition-colors duration-300`}>
-              Hotel
-            </span>
+          <Link href="/">
+            <HotelLogo
+              nameColor={scrolled ? 'text-ink' : 'text-white'}
+              subColor={scrolled ? 'text-emerald' : 'text-gold'}
+              iconColor={scrolled ? 'text-emerald' : 'text-gold'}
+            />
           </Link>
         </div>
 
@@ -89,13 +89,13 @@ export default function Navbar() {
           ))}
         </div>
 
-        {/* CTA + Hamburger */}
+        {/* Book Now + Hamburger */}
         <div className="flex-1 flex justify-end items-center gap-4 sm:gap-6">
-          <div className="hidden md:block">
+          <a href={`tel:${HOTEL.phone.replace(/\s/g, '')}`} className="hidden md:block">
             <LiquidButton variant={scrolled ? 'outline-dark' : 'outline-light'}>
               Book Now
             </LiquidButton>
-          </div>
+          </a>
           <button
             className={`lg:hidden flex flex-col gap-[5px] w-6 justify-center relative z-50 transition-colors duration-300 ${mobileMenuOpen ? 'text-white' : linkColor}`}
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
@@ -127,10 +127,13 @@ export default function Navbar() {
             </a>
           ))}
         </div>
-        <div className="px-8 pb-12 flex flex-col gap-6">
-          <LiquidButton variant="light" className="w-full justify-center">Book Now</LiquidButton>
-          <div className="text-white/50 font-sans text-[11px] tracking-wider space-y-1.5">
-            <p className="text-gold">{HOTEL.phone}</p>
+        <div className="px-8 pb-12 flex flex-col gap-5">
+          <a href={`tel:${HOTEL.phone.replace(/\s/g, '')}`}>
+            <LiquidButton variant="light" className="w-full justify-center">
+              Book Now · {HOTEL.phone}
+            </LiquidButton>
+          </a>
+          <div className="text-white/45 font-sans text-[11px] tracking-wider space-y-1.5">
             <p>{HOTEL.address}</p>
             <p>{HOTEL.email}</p>
           </div>
