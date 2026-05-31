@@ -1,0 +1,719 @@
+# Sweet Garden Hotel Kumasi — Full Homepage Build 
+## Award-Winning Luxury Hotel Website · Next.js 16+ · GSAP · Framer Motion · Shadcn
+
+---
+
+> **GOAL:** Build the complete, production-ready homepage for **Sweet Garden Hotel, Kumasi, Ghana** — a luxury boutique hotel celebrated as "a garden oasis" in the heart of Kumasi. The site must look worth $100,000, rival award-winning hotel websites like **hba.com**, and feel cinematic, immersive, and alive. Every pixel must be intentional. This is not a template exercise — it is a distinctive, designed-from-the-soul piece of digital craftsmanship.
+
+---
+
+## CREATIVE MANDATE
+
+**This website must be extraordinary.** Don't hold back. Show what can truly be created when thinking outside the box and committing fully to a distinctive vision. Claude is capable of extraordinary creative work — execute it at that level.
+
+**NEVER use generic AI-generated aesthetics.** This means:
+- No overused font families: no Inter, Roboto, Arial, or bare system fonts
+- No clichéd color schemes: absolutely no purple gradients on white backgrounds, no generic "startup blue", no safe neutrals without personality
+- No predictable layouts: no standard hero → 3-column grid → CTA footer patterns that look like every other AI-built site
+- No cookie-cutter component design that lacks context-specific character — every element must feel like it was designed *for this hotel specifically*, drawing from its tropical garden identity, Ghanaian cultural richness, and premium positioning
+
+**Match implementation complexity to the aesthetic vision.** This is a maximalist luxury design — it demands elaborate, deeply considered code with extensive animations, rich parallax effects, carefully orchestrated scroll choreography, and micro-interactions that reward attention. Elegance here comes from *doing more with great precision*, not from restraint. Every section should feel like it was art-directed, not generated.
+
+**The aesthetic direction:** Editorial luxury meets tropical African elegance. Think Aman Resorts meets a Ghanaian botanical garden — deep forest greens, warm ivory, burnished gold, cinematic photography, high-contrast serif typography, and movement that feels organic and unhurried.
+
+---
+
+## TECH STACK
+
+- **Framework:** Next.js 15 (App Router)
+- **Language:** TypeScript
+- **Styling:** Tailwind CSS v4
+- **Scroll Animations:** GSAP 3 with ScrollTrigger, CustomEase, and SplitText plugins
+- **Component Animations:** Framer Motion (motion/react)
+- **Smooth Scroll:** @studio-freight/react-lenis (Lenis)
+- **UI Components:** Shadcn/ui
+- **Fonts:** next/font/google (never CDN links)
+- **Images:** next/image (always optimized)
+- **Icons:** Lucide React
+
+Install GSAP, Framer Motion, Lenis, Lucide React, and the needed Shadcn components (button, sheet, navigation-menu) before building.
+
+---
+
+## PROJECT STRUCTURE
+
+Organize the project as follows:
+
+```
+app/
+  globals.css
+  layout.tsx
+  page.tsx
+
+components/
+  layout/
+    Navbar.tsx
+    Footer.tsx
+  ui/
+    LiquidButton.tsx
+    SmoothScrollProvider.tsx
+  sections/
+    HeroSection.tsx
+    WelcomeSection.tsx
+    RoomsSection.tsx
+    PoolGardenSection.tsx
+    DiningSection.tsx
+    EventsSection.tsx
+    FacilitiesSection.tsx
+    LocationSection.tsx
+    TestimonialsSection.tsx
+  shared/
+    AnimatedText.tsx
+    ParallaxImage.tsx
+    SectionLabel.tsx
+
+lib/
+  gsap-config.ts
+  constants.ts
+  utils.ts
+
+public/
+  images/
+```
+
+---
+
+## TYPOGRAPHY SYSTEM
+
+Match the editorial luxury feel of **hba.com** precisely. The font pairing is everything — it sets the entire tone of the site.
+
+**Display / Headings:** `Cormorant Garamond` from Google Fonts — a high-contrast editorial serif with thin horizontal strokes and characterful letterforms. Used for all headings, large numbers, and decorative italic body copy. Weights: 300 (Light), 400 (Regular), 500 (Medium), 600 (SemiBold). Both normal and italic styles. Variable: `--font-cormorant`.
+
+**Body / UI / Navigation:** `DM Sans` from Google Fonts — a clean geometric sans-serif that provides modern contrast against the ornate serif. Used for nav links, labels, body paragraphs, button text, captions. Weights: 300, 400, 500. Variable: `--font-dm-sans`.
+
+Load both through `next/font/google` in `app/layout.tsx` with `display: swap` and inject as CSS variables on the `<html>` element.
+
+| Element | Font | Size | Weight | Notes |
+|---|---|---|---|---|
+| Hero headline | Cormorant Garamond | clamp(56px, 8vw, 120px) | 300 | letter-spacing: -0.02em |
+| Section headings (h2) | Cormorant Garamond | clamp(42px, 5.5vw, 80px) | 400 | letter-spacing: -0.015em |
+| Large italic body | Cormorant Garamond | clamp(20px, 2.2vw, 28px) | 300 | italic |
+| Nav links | DM Sans | 11px | 400 | ALL CAPS, tracking: 0.18em |
+| Eyebrow labels | DM Sans | 10–11px | 400 | ALL CAPS, tracking: 0.25–0.3em |
+| Body paragraphs | DM Sans | 15–17px | 300 | line-height: 1.7 |
+| Button text | DM Sans | 11px | 400 | ALL CAPS, tracking: 0.15em |
+| Stat numbers | Cormorant Garamond | clamp(48px, 6vw, 96px) | 300 | leading-none |
+| Footer | DM Sans | 12–13px | 300 | — |
+
+**Typography rule:** Always use `clamp()` for responsive heading sizes. Never hardcode a fixed `px` font-size for any heading element.
+
+---
+
+## COLOR SYSTEM
+
+The palette is rooted in the hotel's identity — tropical garden, Ghanaian warmth, premium restraint.
+
+**Backgrounds:**
+- `--cream: #F4EDE4` — Primary light background. Warm ivory, not pure white.
+- `--cream-dark: #EDE4D8` — Slightly deeper cream for contrast sections within light areas.
+- `--forest: #0D2018` — Deep dark forest green. Primary dark section background.
+- `--forest-mid: #162E1F` — Mid-forest tone for overlays, cards on dark sections.
+
+**Brand Colors:**
+- `--emerald: #2D6A4F` — Primary brand emerald green. Used for accents, active states, hover underlines.
+- `--emerald-light: #40916C` — Lighter emerald for secondary accents.
+- `--emerald-pale: #95D5B2` — Very pale mint for subtle highlights on dark backgrounds.
+- `--gold: #C9A86C` — Warm brushed gold. Used for eyebrow labels on dark sections, logo accent, star decoration.
+- `--gold-muted: #A8894E` — Muted gold for less prominent accents.
+
+**Text:**
+- `--ink: #1A1A18` — Primary near-black text on light backgrounds.
+- `--ink-muted: #4A4A46` — Secondary text, descriptions.
+- `--ink-faint: #8A8A82` — Tertiary text, labels, metadata.
+- `--white: #FFFFFF`
+- `--white-70: rgba(255,255,255,0.70)` — Body text on dark backgrounds.
+- `--white-40: rgba(255,255,255,0.40)` — Metadata, labels on dark backgrounds.
+
+**UI Details:**
+- `--border-light: rgba(26,26,24,0.12)` — Borders on cream sections.
+- `--border-dark: rgba(255,255,255,0.15)` — Borders on forest sections.
+
+**Custom easing variables** (declare these in `:root` for use throughout):
+- `--ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1)`
+- `--ease-in-out-quad: cubic-bezier(0.45, 0, 0.55, 1)`
+
+Declare all as CSS custom properties in `globals.css` `:root` and extend Tailwind's config to reference them by name (`bg-cream`, `bg-forest`, `text-emerald-brand`, etc.).
+
+---
+
+## GLOBAL STYLE RULES
+
+- `box-sizing: border-box` on all elements
+- `-webkit-font-smoothing: antialiased` on `body`
+- `overflow-x: hidden` on `body`
+- `scroll-behavior: auto` on `html` — Lenis handles all smooth scrolling; never let CSS compete
+- Custom scrollbar: 4px wide, cream track, emerald thumb
+- Text selection: emerald background, white text
+- **IMAGE RULE:** `border-radius: 0 !important` on all `img` elements in global CSS. This is non-negotiable and enforced globally.
+
+Configure Lenis with `lerp: 0.085`, `duration: 1.4`, `smoothWheel: true`, `wheelMultiplier: 0.8`. Wrap the entire app in a `SmoothScrollProvider` client component.
+
+Register GSAP plugins in a `lib/gsap-config.ts` that runs only on the client: `ScrollTrigger`, `CustomEase`, `SplitText`. Create a `smoothReveal` custom ease: `'M0,0 C0.16,1 0.3,1 1,1'`. Export `gsap`, `ScrollTrigger`, and `CustomEase` from this file so components import from it (not directly from gsap).
+
+---
+
+## LIQUID BUTTON COMPONENT
+
+This is the signature interactive element of the entire site. Every clickable button must use this component — no plain Tailwind-styled buttons.
+
+**Behaviour:** On hover, a liquid-like organic blob shape emerges from the bottom of the button and fills it entirely, swapping the button's background and text colour. When the cursor leaves, the liquid drains back upward and exits through the top. On mobile touch: the liquid fills on `touchstart` and clears upward on `touchend`.
+
+**Implementation approach:**
+- The button contains a hidden `<span>` absolutely positioned to fill the button, with `overflow: hidden` on the parent
+- Use GSAP to animate a `clip-path` property on the fill span through three keyframes:
+  1. Start: `ellipse(65% 18% at 50% 110%)` — a flat bulge just below the visible area
+  2. Mid: `ellipse(80% 45% at 50% 95%)` — rising liquid bubble
+  3. End: `ellipse(140% 140% at 50% 50%)` — fully fills the button
+- On mouse-leave: reverse through the keyframes, exiting via the top (`ellipse(65% 18% at 50% -10%)`)
+- Duration: enter ~0.5s, exit ~0.4s — feels weighty and organic, not snappy
+- The text span sits above the fill span (z-index) and its colour transitions to match the new inverted state
+- `willChange: 'clip-path'` on the fill element for GPU compositing
+- Kill any running timeline before starting a new one (handles fast hover in/out)
+
+**Variants:**
+- `outline-dark` — transparent bg, ink border and text. Liquid fill: ink. Text becomes cream on fill.
+- `outline-light` — transparent bg, white border and text. Liquid fill: white. Text becomes forest on fill.
+- `dark` — forest bg, white text. Liquid fill: white. Text becomes forest on fill.
+- `light` — cream bg, ink text. Liquid fill: forest. Text becomes white on fill.
+
+The button is always: `inline-flex items-center justify-center`, `px-8 py-3.5`, `min-w-[160px]`, `text-[11px] tracking-[0.18em] uppercase font-sans`, `overflow-hidden relative`, `cursor-pointer`, `select-none`. No `border-radius` ever.
+
+---
+
+## ANIMATED TEXT COMPONENT
+
+A reusable component that wraps text and animates it into view on scroll (or on mount). Splits the text into words (or chars for headings) and staggers them in with a translate-Y-up + opacity reveal, exactly as seen on hba.com.
+
+**Approach:** Manually split the text content into spans wrapped in overflow-hidden containers. On ScrollTrigger fire (start: `top 85%`), GSAP animates the inner spans from `y: '100%', opacity: 0` to `y: '0%', opacity: 1` with `stagger: 0.06` (words) or `stagger: 0.03` (chars), `duration: 1`, `ease: 'power4.out'`. Always `once: true` on the ScrollTrigger.
+
+---
+
+## PARALLAX IMAGE COMPONENT
+
+A wrapper component for `next/image` that adds a vertical parallax offset as the user scrolls. Uses GSAP ScrollTrigger with `scrub: true` to translate the inner image element by a configurable amount (default: 20% of its height) from top to bottom of the viewport pass. The outer container must have `overflow: hidden`. The inner image element is scaled/sized to be taller than the container by the parallax amount to prevent gaps.
+
+---
+
+## NAVBAR
+
+**Behaviour & States:**
+- Transparent on initial render (white logo text, white nav links, white/gold accents) — floats over the hero image
+- After scrolling 80px: transitions to `bg-cream/95 backdrop-blur-sm` with dark logo and ink nav links. Subtle bottom border appears.
+- Transition: 500ms `ease-out` on all color and background changes
+- Height: ~72px expanded, ~60px scrolled
+
+**Layout:**
+- Left: Hotel logo — "Sweet Garden" in Cormorant Garamond Light + "Hotel" in DM Sans small caps below/beside, in gold color on dark state, emerald on light state
+- Center (desktop): Nav links — ROOMS · DINING · EVENTS · POOL & GARDEN · FACILITIES · LOCATION
+- Right: "Book Now" LiquidButton + hamburger on mobile
+
+**Nav links:** 11px DM Sans, ALL CAPS, `tracking-[0.18em]`. Underline-on-hover effect using an absolutely positioned `::after` pseudo-element that transitions `width` from 0 to 100% in 300ms.
+
+**Mount animation:** Navbar slides down from `y: -60, opacity: 0` to normal in 1.2s with `power4.out` ease, 0.2s delay.
+
+**Mobile menu overlay:**
+- Full-screen `position: fixed` overlay in `--forest` background
+- Enters: `clip-path` animation from `inset(0 0 100% 0)` to `inset(0 0 0% 0)` — slides down like a blind
+- Each nav link staggers in from `x: -40, opacity: 0` with 0.07s stagger
+- Links in Cormorant Garamond, 48–56px, font-light
+- Book Now LiquidButton at the bottom of the link list
+- Hotel phone number and address in small caps at the very bottom
+
+---
+
+## HOMEPAGE SECTIONS
+
+The page alternates between light and dark sections:
+`Dark (Hero) → Light (Welcome) → Dark (Rooms) → Dark-Forest (Pool) → Light (Dining) → Dark (Events) → Light (Facilities) → Split (Location) → Light (Testimonials)`
+
+---
+
+### SECTION 1: HERO
+
+**Full viewport height. Cinematic. This is the first impression — make it unforgettable.**
+
+**Layout & Design:**
+- 100vh minimum height, `overflow: hidden`
+- Full-bleed background: the hotel's most dramatic image (pool/garden aerial view)
+- Dark gradient overlay: `linear-gradient` from near-opaque forest green at the bottom (90% opacity) fading to nearly transparent at the top (20% opacity) — so the photography reads clearly at the top but text at the bottom is fully legible
+- Text anchored bottom-left: eyebrow label → large serif headline → italic sub-line → CTA buttons → metadata tags
+
+**Dual-image composition (like HBA):** A secondary smaller image (garden bar / poolside scene) appears in the top-right corner of the viewport — floating, offset, with its own parallax rate. It enters on load with a rightward slide-in animation (delayed ~1.6s), creating a layered, editorial composition.
+
+**Content:**
+- Eyebrow: `DANYAME · KUMASI · GHANA` in DM Sans, 10px, tracking-[0.3em], gold color
+- Headline: `A Garden Oasis` (or `Where Luxury Meets Nature`) in Cormorant Garamond Light, enormous, white
+- Sub-line: `Where lush tropical gardens meet the finest hospitality in Kumasi.` — italic, white/75
+- CTA row: `Reserve Your Stay` (LiquidButton light) + `Explore the Garden` (LiquidButton outline-light)
+- Metadata tags bottom-right (like HBA project metadata): `Outdoor Pool · Leisure`, `Main Restaurant · Dining`, `5 Event Spaces · Events` — small caps, white/40 and white/80
+
+**Mount animation sequence (GSAP timeline, starts 0.5s after load):**
+1. Overlay fades from fully opaque to its final value (reveals the dramatic photo)
+2. Headline translates up from y:80 + opacity 0 to normal
+3. Sub-line follows with a slight delay
+4. CTA buttons follow
+5. Secondary thumbnail slides in from the right last
+
+**Scroll indicator:** A bouncing chevron-down icon, centered at the bottom, subtle white/50 opacity.
+
+---
+
+### SECTION 2: WELCOME / ABOUT
+
+**Light cream background. Two-column editorial layout.**
+
+**Left column:**
+- Small eyebrow label: `Overview` in DM Sans ALL CAPS
+- Large serif heading: `Who We Are` — AnimatedText with word-by-word reveal
+- Portrait/architectural hotel image below the heading — tall aspect ratio (3/4), full-width of column, with ParallaxImage slow speed
+
+**Right column (offset top by ~80px on desktop for visual tension):**
+- Large italic Cormorant body text: the hotel's main description paragraph
+- Regular DM Sans paragraph with location context and key selling points
+- Stats row (4 items, separated by thin top borders):
+  - `50+` Luxury Rooms
+  - `10+` Years of Excellence  
+  - `5` Private Event Spaces
+  - `4.8` Guest Rating
+  - Stat numbers in Cormorant Garamond, ~56px, emerald brand color
+  - Labels in DM Sans, 10px, ALL CAPS, ink-faint
+- LiquidButton `outline-dark`: `Explore Rooms`
+
+Stats animate in with GSAP stagger on ScrollTrigger.
+
+---
+
+### SECTION 3: ROOMS
+
+**Dark forest background. Horizontal-scroll room showcase.**
+
+**Design:**
+- Section header: `Rooms & Suites` heading (left) + `View All` LiquidButton outline-light (right of heading)
+- Below: Three room cards in a horizontal scroll container with `scroll-snap-type: x mandatory`
+- Each card snaps into place, occupying ~85vw on mobile and ~45vw on desktop
+- Card anatomy: full-bleed room image (tall aspect ratio, no border-radius), then below the image: room name in Cormorant Garamond, brief italic description, feature tags in small DM Sans pills, LiquidButton `outline-light`
+- Subtle drag cursor (`cursor: grab`) and support for touch swipe
+
+**Desktop enhancement:** Use GSAP ScrollTrigger to pin the section and animate the horizontal scroll position proportionally to vertical scroll — creating a smooth automated horizontal pan as the user scrolls down.
+
+**Animation:** Cards enter from the right, staggered, on section scroll entry.
+
+**Room content:**
+1. **Deluxe Garden Room** — 42 sqm, garden view, rainfall shower, king bed, mini bar, smart TV, free WiFi
+2. **Pool View Suite** — 58 sqm, direct pool view, private balcony, king bed, lounge area, 24hr room service
+3. **Deluxe Twin Room** — 42 sqm, garden view, twin beds, work desk, rainfall shower, smart TV
+
+---
+
+### SECTION 4: POOL & GARDEN
+
+**This is the VISUAL CENTREPIECE of the entire homepage. Give it the most space, the most drama, the most cinematic treatment.**
+
+**Dark emerald/forest background. Split full-viewport layout.**
+
+**Design:**
+- Full viewport height section
+- Left 60%: Cinematic pool image — tall, dramatic, covering the full left column height. ParallaxImage with medium speed. No border-radius.
+- Right 40%: Forest background, content centered vertically with generous padding
+- A thin horizontal gold line separator decorates the content area
+
+**Floating overlay** on the bottom-left of the image: a small dark card (forest bg, white text) showing pool hours or a poetic tagline — `Open Daily · 6:00am – 10:00pm`
+
+**Content (right column):**
+- Eyebrow in gold: `The Pool & Garden`
+- Large serif heading (AnimatedText): `The Heart of the Garden`
+- Italic Cormorant body:
+  > *Dive into the shimmering centrepiece of Sweet Garden. Our outdoor pool, surrounded by lush tropical plantings, is the beating heart of the estate — equally inviting at sunrise for quiet morning laps and at dusk for drinks beneath the evening sky.*
+- Gold horizontal rule
+- Sub-note in DM Sans ALL CAPS, small: `OPEN DAILY · 6:00AM – 10:00PM`
+- LiquidButton `outline-light`: `Discover the Pool`
+
+**Mobile:** Stack vertically — image on top (16:9 aspect ratio), content below on forest background.
+
+**Animation:** The right-column content stagger-reveals on scroll. The image has a pronounced parallax. The floating overlay enters with a GSAP `y: 30, opacity: 0` → normal on ScrollTrigger.
+
+---
+
+### SECTION 5: DINING
+
+**Cream background. Editorial dining showcase with sensory copy and a food marquee.**
+
+**Layout:**
+- Heading row: `Culinary Journeys` (left, large serif) — AnimatedText
+- Sub-copy: A single editorial sentence about the range of food offerings, italic Cormorant
+- **Marquee strip** immediately below the heading (before the grid):
+  - Horizontally scrolling ticker with infinite CSS animation
+  - Text: `GHANAIAN CLASSICS · INTERNATIONAL CUISINE · CHINESE KITCHEN · BBQ & GRILL · POOLSIDE BAR · PIZZA · CONTINENTAL BREAKFAST · FRESH SEAFOOD ·` — repeated twice for seamless loop
+  - DM Sans, 11px, ALL CAPS, tracking-[0.2em], ink-faint color, with emerald `·` separators
+  - Speed: moderate, smooth, `animation: marquee 20s linear infinite`
+
+**Dining grid (2×2 on desktop, 1 column on mobile):**
+
+Each card: image top (3:2 aspect ratio, no border-radius), then category tag (DM Sans, small, ALL CAPS, emerald brand), then venue name (Cormorant, 24px, ink), then description (DM Sans, 15px, ink-muted). Image darkens slightly on hover (overlay opacity transitions from 0 to 0.2).
+
+Four dining venues:
+1. **Main Restaurant** — `All-Day Dining` · Ghanaian specialties and international cuisine, breakfast through dinner
+2. **Poolside Bar & Grill** — `Pool & Garden` · BBQ, grills, spicy chicken wings, cold Club beer by the pool
+3. **Chinese Kitchen** — `Specialty Kitchen` · Authentic Chinese cuisine: dim sum, stir-fries, soups, seasonal specials
+4. **Garden Terrace** — `Garden Dining` · Al fresco breakfast with fresh Ghanaian fruit, continental spreads, open sky
+
+Cards stagger-in from below with GSAP on ScrollTrigger.
+
+---
+
+### SECTION 6: EVENTS & PRIVATE GATHERINGS
+
+**Dark forest background. This section uses a horizontal card carousel matching the HBA Perspectives carousel EXACTLY.**
+
+**Header row:**
+- Left: `Private Events & Gatherings` — large serif heading
+- Right of heading: `View All Spaces` — LiquidButton `outline-light`
+
+**Event carousel (horizontal, drag-enabled):**
+- Positioned below the header, scrolls horizontally
+- On desktop: ~3.2 cards visible. On mobile: ~1.2 cards visible.
+- Each card: tall image (3:4 aspect ratio, no border-radius), then below: category tag in DM Sans ALL CAPS (emerald-pale on dark bg), event title in Cormorant Garamond, brief description in DM Sans small
+- Drag cursor: `cursor: grab` / `cursor: grabbing`
+- Touch swipe support
+- Carousel uses `overflow-x: scroll` with `scroll-snap-type: x mandatory`, hidden scrollbar
+
+Six event cards (from EVENTS data):
+1. **Corporate Meetings** — Business · Private rooms with AV, climate control, dedicated catering
+2. **Birthday Celebrations** — Celebration · VIP rooms with karaoke, personalized décor, signature menus
+3. **Bridal Showers** — Celebration · Intimate garden or VIP lounge settings
+4. **Proposal Nights** — Romance · Candlelit pool terraces, bespoke menus, floral arrangements
+5. **Anniversary Dinners** — Romance · Restaurant VIP room or front garden under the stars
+6. **Corporate Dinners** — Business · Private dining, international menus, butler service
+
+**Private spaces grid** (below the carousel, 2×2 grid on desktop):
+Four spaces with image + name + capacity badge + highlight tag. A subtle hover: image scale-up (1.03) within overflow-hidden container. No border-radius.
+
+Four private spaces:
+- Pool VIP Room · up to 50 guests · Direct pool access
+- Rooftop VIP Room · up to 40 guests · Panoramic city views
+- Restaurant VIP Room · up to 60 guests · Full dining service
+- Front Garden · up to 100 guests · Outdoor tropical setting
+
+---
+
+### SECTION 7: FACILITIES
+
+**Cream background. Icon grid with hover micro-interactions.**
+
+**Layout:**
+- Eyebrow label, then `Everything You Need` heading
+- Sub-sentence: affordable luxury includes everything
+- 8-item grid: 2 cols mobile, 4 cols desktop
+
+Each facility item: top border line (thin, ink/15), Lucide icon (24px, emerald brand color), facility name (Cormorant Garamond, 20px), one-sentence description (DM Sans, 14px, ink-muted). Hover: icon scales to 1.15 with a slight rotation (5deg), transition 300ms.
+
+Eight facilities:
+1. **Outdoor Pool** — Shimmering centrepiece of the estate, open daily 6am–10pm
+2. **Spa & Massage** — Swedish, deep tissue, and local traditional treatments
+3. **Fitness Center** — Modern gym with cardio and weights, open 24 hours
+4. **Pool Table & Games** — Full-size pool table and table tennis available all day
+5. **Free Parking** — Complimentary secure parking within the estate grounds
+6. **Free WiFi** — Superfast WiFi in all rooms and throughout the grounds
+7. **24hr Room Service** — Full restaurant menu delivered to your room any time
+8. **Laundry & Dry Cleaning** — Same-day service on request at front desk
+
+Grid items stagger in from below with GSAP on ScrollTrigger, 0.08s stagger.
+
+---
+
+### SECTION 8: LOCATION
+
+**Split section. Left dark, right light (or a full-dark section with a map inset).**
+
+**Left side (dark forest background):**
+- Eyebrow: `Location`
+- Large heading (AnimatedText): `At the Centre of Everything`
+- Body: *Nestled in the serene Danyame Estates — one of Kumasi's most tranquil and well-connected neighbourhoods — Sweet Garden Hotel places you minutes from the international airport, the business district, and the city's finest landmarks.*
+- **Landmark list:** Each item shows a landmark name + distance badge (DM Sans, small, with a thin left border line in emerald). Animate each item sliding in from left, staggered.
+- **Airport callout bar:** A special highlighted row with plane icon — `✈ 10 minutes from Prempeh I International Airport` — in gold text on a slightly lighter forest card. This is a key selling point and should be visually prominent.
+- **Affordability note:** A small inset card: *"Luxury comfort at an affordable rate — starting from just GH₵ per night. Premium experience, accessible pricing."* This directly addresses price-sensitive travellers.
+
+Nearby landmarks to list:
+- Prempeh I International Airport — 10 min (6.5 km)
+- Kumasi City Mall — 5 min drive
+- Baba Yara Stadium — 10 min drive
+- Adum Business District — 12 min drive
+- Kumasi Golf Club — 8 min drive
+- Ghana Armed Forces Museum — 5 min drive
+- Kejetia Market — 15 min drive
+- Okomfo Anokye Sword Site — 18 min drive
+- Rattray Park — 5 min drive
+
+**Right side:** An embedded Google Map centered on Danyame, Kumasi (coordinates approx. `6.68°N, 1.62°W`) OR a styled dark map embed. Alternatively: a large hotel exterior/aerial image with a pin overlay.
+
+---
+
+### SECTION 9: TESTIMONIALS
+
+**Cream background. Guest voices as social proof.**
+
+- Eyebrow: `Guest Reviews`
+- Heading: `What Our Guests Say`
+- Three testimonial cards in a row (horizontal scroll on mobile)
+- Each card: large decorative opening quote mark `"` (Cormorant Garamond, ~80px, emerald brand color), then quote body (Cormorant italic, 19px), then author name (DM Sans, small, semi-bold ink), then source badge (DM Sans, 10px, ALL CAPS, ink-faint)
+- Cards enter staggered from below on scroll
+
+Testimonials:
+1. *"A garden oasis. My new go-to place in Kumasi. Great service and fantastic food. Nothing like an ice cold poolside drink with spicy chicken wings."* — David R., TripAdvisor
+2. *"What a decent, serene and tranquil atmosphere. Perfect lights, a decent pool, an excellent place for events. The staff were gentle and hospitable."* — Kwame A., Google Reviews
+3. *"Beautiful and clean environment, sparkling pool, nice food and friendly service. We loved everything about the hotel and will recommend to all visitors in Kumasi."* — Akosua & Family, Booking.com
+
+---
+
+## FOOTER
+
+**Dark forest background. Matches HBA footer structure.**
+
+**Top block:** Hotel logo (white version) on the left. Navigation links in two columns on the right.
+
+**Middle block (with thin top border):** Three columns:
+- **Subscribe:** Email address input field (bottom-border only, no box), country selector, `Yes, I'd like to receive emails` checkbox, `Sign Up` LiquidButton `outline-light`
+- **Enquire:** `Contact Us` in large Cormorant Garamond, ~36px
+- **Follow Us:** INSTAGRAM · FACEBOOK · LINKEDIN · YOUTUBE · TIKTOK — each on its own line, DM Sans ALL CAPS, 11px, tracking-wide, white/60 hover → white
+
+**Bottom block (with thin top border):**
+`COPYRIGHT © 2025 SWEET GARDEN HOTEL. ALL RIGHTS RESERVED · PRIVACY POLICY · TERMS OF SERVICE`
+DM Sans, 11px, white/40. Right side: scroll-to-top circular button (LiquidButton or a custom icon button).
+
+Input field styling in footer: no background box, only a bottom border line in white/20, placeholder text in white/30. Consistent with HBA's minimal form aesthetic.
+
+---
+
+## PAGE ASSEMBLY (app/page.tsx)
+
+The page component simply imports and renders all section components in order, top to bottom. No extra wrapper divs or padding — each section manages its own spacing. The sections render in this order:
+
+HeroSection → WelcomeSection → RoomsSection → PoolGardenSection → DiningSection → EventsSection → FacilitiesSection → LocationSection → TestimonialsSection
+
+---
+
+## LAYOUT FILE (app/layout.tsx)
+
+Load Cormorant Garamond and DM Sans via `next/font/google`. Apply both as CSS variables on `<html>`. Wrap `<body>` content in `SmoothScrollProvider`. Mount `<Navbar />` before and `<Footer />` after `{children}`.
+
+**Metadata:**
+- Title: `Sweet Garden Hotel Kumasi | A Garden Oasis`
+- Description: `Sweet Garden Hotel — luxury comfort at an affordable rate in the heart of Kumasi, Ghana. Pool, spa, fine dining, and 5 private event spaces in the Danyame Estates.`
+- Keywords: hotel kumasi, sweet garden hotel, ghana hotel, kumasi luxury hotel, danyame estate hotel
+- OG tags: title, description, type: website
+
+---
+
+## ANIMATION CHOREOGRAPHY
+
+| Component / Element | Animation | Trigger | Library |
+|---|---|---|---|
+| Navbar | Slide down + fade in | Mount (0.2s delay) | GSAP |
+| Hero overlay | Opacity fade (reveals photo) | Mount | GSAP |
+| Hero heading | Y: 80 → 0, opacity 0 → 1 | Mount | GSAP |
+| Hero sub-text | Y: 40 → 0, opacity | Mount | GSAP |
+| Hero thumbnail (top-right) | X: 60 → 0, opacity | Mount (1.6s delay) | Framer Motion |
+| All section headings | Word-by-word Y reveal | ScrollTrigger top 85% | GSAP |
+| Body paragraphs | Fade + Y: 30 → 0 | ScrollTrigger | Framer Motion |
+| All images | Parallax Y offset | ScrollTrigger scrub | GSAP |
+| Stats numbers | Stagger Y reveal | ScrollTrigger | GSAP |
+| Room cards | Stagger from right | ScrollTrigger | GSAP |
+| Marquee strip | Infinite horizontal scroll | Auto (CSS) | CSS animation |
+| Dining cards | Stagger Y reveal | ScrollTrigger | GSAP |
+| Event carousel | Horizontal drag + fade in | ScrollTrigger + mouse | GSAP + Framer |
+| Facility icons | Scale + rotate on hover | Mouse | CSS transition |
+| Facility grid items | Stagger Y reveal | ScrollTrigger | GSAP |
+| Location landmarks | Stagger X reveal (from left) | ScrollTrigger | GSAP |
+| Testimonial cards | Stagger Y reveal | ScrollTrigger | Framer Motion |
+| Liquid button | Blob clip-path morph up/down | Mouse hover / touch | GSAP |
+| Mobile menu | Clip-path blind down/up | Click | Framer Motion |
+| Footer | Fade in | ScrollTrigger | Framer Motion |
+
+**GSAP cleanup rule:** Every `useEffect` that creates a GSAP ScrollTrigger must return a cleanup function that calls `.kill()` on the trigger (or calls `ScrollTrigger.getAll().forEach(t => t.kill())` scoped to that component's triggers). This prevents memory leaks and stale animations across hot reloads.
+
+---
+
+## HOTEL DATA CONSTANTS (lib/constants.ts)
+
+Declare all hotel data as typed constants. Do not hardcode strings inside components — import from constants. Include:
+
+**HOTEL object:** name, tagline, sub-tagline, full description, phone, address, location, check-in time (14:00), check-out time (11:30), email.
+
+**NAV_LINKS array:** href anchors and labels for all 6 nav links.
+
+**ROOMS array (3 items):** id, name, description, size (sqm), guests, features array, image path.
+
+**EVENTS array (6 items):** id, title, description, icon, image path, category.
+
+**PRIVATE_SPACES array (4 items):** name, capacity, highlight, image path.
+
+**DINING array (4 items):** title, description, tag.
+
+**FACILITIES array (8 items):** name, icon (Lucide component name as string), description.
+
+**LOCATION_LANDMARKS array (9 items):** name, distance, direction.
+
+**STATS array (4 items):** number (string), label.
+
+**TESTIMONIALS array (3 items):** quote, author, source, role.
+
+---
+
+## IMAGE PLACEHOLDER STRATEGY
+
+All images reference paths under `public/images/`. Use high-quality Unsplash photos as placeholders until real hotel photography is supplied. Suggested search queries:
+
+| Path | Unsplash Query |
+|---|---|
+| `hero/pool-aerial.jpg` | "tropical hotel outdoor pool garden aerial" |
+| `hero/garden-bar.jpg` | "outdoor hotel bar tropical garden evening" |
+| `about/hotel-entrance.jpg` | "luxury boutique hotel entrance lobby warm" |
+| `rooms/deluxe-garden.jpg` | "luxury hotel room garden view king bed" |
+| `rooms/pool-suite.jpg` | "hotel suite balcony pool view" |
+| `rooms/deluxe-twin.jpg` | "hotel twin room clean luxury" |
+| `pool/evening.jpg` | "hotel outdoor swimming pool sunset evening" |
+| `pool/morning.jpg` | "hotel pool tropical garden morning light" |
+| `dining/restaurant.jpg` | "luxury hotel restaurant interior warm lighting" |
+| `dining/poolside.jpg` | "poolside bar grill tropical hotel" |
+| `events/corporate.jpg` | "private corporate meeting room hotel" |
+| `events/birthday.jpg` | "private birthday celebration restaurant VIP room" |
+| `events/bridal.jpg` | "elegant bridal shower venue decoration" |
+| `events/proposal.jpg` | "romantic proposal candlelit dinner pool" |
+
+All images must be served through `next/image` with appropriate `width`, `height`, `fill`, `priority` (for above-fold images), and `alt` attributes. **Never** add `rounded` classes or inline `borderRadius` to any image.
+
+---
+
+## CRITICAL NON-NEGOTIABLE DESIGN RULES
+
+1. **NO BORDER RADIUS ON IMAGES — EVER.** Global CSS enforces this. Zero exceptions.
+
+2. **LIQUID BUTTON ONLY.** Every call-to-action button uses `<LiquidButton>`. No plain `<button>` with background colors.
+
+3. **STRICT ALTERNATING SECTION BACKGROUNDS.**
+   - Hero: forest (dark)
+   - Welcome: cream (light)
+   - Rooms: forest (dark)
+   - Pool & Garden: forest-mid (dark)
+   - Dining: cream (light)
+   - Events: forest (dark)
+   - Facilities: cream (light)
+   - Location: split forest/cream, or full dark
+   - Testimonials: cream (light)
+   - Footer: forest (dark)
+
+4. **`'use client'` on every interactive component.** GSAP, hooks, browser APIs, and event listeners all require the client directive.
+
+5. **Never use `scroll-behavior: smooth` in CSS.** Lenis owns all scrolling.
+
+6. **No generic placeholder icons.** Use specific Lucide icons semantically matched to each facility (Waves for pool, Leaf for spa, Dumbbell for gym, etc.)
+
+7. **All typography via CSS variables.** `font-family: var(--font-cormorant)` and `var(--font-dm-sans)` — never Tailwind's default font stack for these.
+
+8. **Pool section must be the most dramatic.** Of all sections, `PoolGardenSection` should receive the most visual attention — biggest image, most generous padding, most considered typography.
+
+9. **Affordability is a brand feature.** The Location section and hero metadata should both subtly communicate premium quality at accessible pricing. This is a real selling point for this hotel.
+
+10. **Ghana and Kumasi are features, not afterthoughts.** The eyebrow tag on the hero (`DANYAME · KUMASI · GHANA`) and references to local landmarks in the Location section ground this as a proudly Ghanaian property, not a generic "anywhere" luxury hotel.
+
+---
+
+## FINAL DELIVERY CHECKLIST
+
+- [ ] All 9 sections + Navbar + Footer implemented and rendering without error
+- [ ] `npx tsc --noEmit` passes clean — no TypeScript errors
+- [ ] Navbar: transparent over hero, transitions to cream/solid on scroll
+- [ ] Navbar: mobile hamburger opens full-screen forest overlay with animated links
+- [ ] Liquid button: blob enters from bottom on hover, drains to top on leave — on all variants
+- [ ] Liquid button: works correctly on mobile touch (touchstart/touchend)
+- [ ] ALL images: `borderRadius: 0` enforced, zero exceptions
+- [ ] Lenis smooth scroll: initialised, no CSS scroll-behavior conflicts
+- [ ] GSAP: all plugins registered, all effects working, all cleanups returning
+- [ ] Parallax images: scroll-linked Y offset working without layout shift
+- [ ] Events section: horizontal drag carousel functioning on desktop and touch
+- [ ] Dining section: marquee strip scrolling infinitely and seamlessly
+- [ ] Pool & Garden section: full-viewport height, split layout, floating overlay card
+- [ ] Location section: all 9 landmarks listed with distance, airport callout prominent
+- [ ] Stats: 4 items with emerald number + ALL CAPS label, top-border style
+- [ ] Footer: subscribe form (bottom-border inputs), social links, copyright 2025
+- [ ] Fonts loading from `next/font/google` — not from CDN or @import in CSS
+- [ ] All color values use CSS variables — no hardcoded hex values in component files
+- [ ] Responsive at: 375px (mobile), 768px (tablet), 1280px (laptop), 1440px+ (desktop)
+- [ ] No purple, no generic blue, no Inter, no drop-shadow cards, no rounded corners on images
+- [ ] The result looks like it won an Awwwards Site of the Day
+
+---
+
+## HOTEL QUICK-REFERENCE
+
+```
+Hotel Name:       Sweet Garden Hotel and Restaurant
+Category:         Luxury Boutique Hotel · 3+ Stars
+Tagline:          "Luxury Comfort at an Affordable Rate"
+                  "A Garden Oasis in the Heart of Kumasi"
+Address:          Circular Road, Ridge Danyame, Kumasi, Ghana
+                  (Danyame Estates, near State Experimental School)
+Phone:            +233 240 881 143
+Coordinates:      ~6.68°N, 1.62°W
+Check-in:         14:00 · Check-out: 11:30
+
+KEY DISTANCES:
+  ✈  Prempeh I International Airport   10 min (6.5 km)
+  🛍  Kumasi City Mall                   5 min drive
+  ⛳  Kumasi Golf Club                   8 min drive
+  🏟  Baba Yara Stadium                 10 min drive
+  💼  Adum Business District            12 min drive
+  🏛  Ghana Armed Forces Museum          5 min drive
+  🛒  Kejetia Market                    15 min drive
+  ⚔️  Okomfo Anokye Sword Site          18 min drive
+  🌳  Rattray Park                       5 min drive
+
+FACILITIES:
+  Outdoor Pool · Spa & Massage · Gym · Pool Table · Table Tennis
+  Main Restaurant · Poolside Bar & Grill · Chinese Kitchen
+  Garden Terrace · Indoor Bar · BBQ Grills · Picnic Area
+  Free WiFi · Free Parking · 24hr Room Service · Laundry
+  Continental Breakfast (included) · 24hr Front Desk
+
+EVENT SPACES (all have Karaoke systems):
+  Pool VIP Room          up to 50 guests   Direct pool access
+  Rooftop VIP Room       up to 40 guests   Panoramic city views
+  Restaurant VIP Room    up to 60 guests   Full dining service
+  Front Garden           up to 100 guests  Outdoor tropical
+  Corporate Boardroom    up to 20 guests   AV & catering
+
+ROOM TYPES:
+  Deluxe Double Room (pool-view or garden-view)
+  Deluxe Twin Room   (garden-view)
+  All rooms include: Rainfall shower · AC · Smart TV · Minibar
+                     Free WiFi · 24hr room service · Bottled water
+                     Satellite channels · Daily housekeeping
+
+CUISINE OFFERED:
+  Ghanaian local specialties · International continental
+  Chinese cuisine · BBQ & Grill · Pizza · Seafood
+  Continental breakfast · Poolside snacks & cocktails
+
+EVENT TYPES HOSTED:
+  Corporate meetings · Corporate dinners · Birthday parties
+  Bridal showers · Anniversary dinners · Proposal nights
+  Graduation events · General private gatherings
+
+BRAND POSITIONING:
+  "A garden oasis" — premium experience, accessible pricing
+  Proudly located in Kumasi: The Garden City of Ghana
+```
+
+---
+
+*Build this as if it will win Awwwards Site of the Day. Every section must feel art-directed. Every animation must feel considered. Every word of copy must feel earned. This is Sweet Garden Hotel — and it deserves a website that matches the serenity and beauty of the place itself.*
