@@ -10,6 +10,7 @@ import EventsSection from "@/components/sections/EventsSection";
 import FacilitiesSection from "@/components/sections/FacilitiesSection";
 import LocationSection from "@/components/sections/LocationSection";
 import TestimonialsSection from "@/components/sections/TestimonialsSection";
+import GallerySection from "@/components/sections/GallerySection";
 import Footer from "@/components/layout/Footer";
 import NotFound from "@/pages/not-found";
 
@@ -27,6 +28,7 @@ function Home() {
         <FacilitiesSection />
         <LocationSection />
         <TestimonialsSection />
+        <GallerySection />
       </main>
       <Footer />
     </SmoothScrollProvider>

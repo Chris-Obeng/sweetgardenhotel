@@ -3,7 +3,7 @@ export const HOTEL = {
   tagline: "A Garden Oasis",
   sub_tagline: "Where Luxury Meets Nature",
   description: "Nestled in the serene Danyame Estates of Kumasi, Sweet Garden Hotel is a tropical sanctuary where lush gardens meet world-class hospitality. With 50+ luxury rooms, 5 private event spaces, an outdoor pool, spa, and multiple dining venues, we offer premium comfort at an accessible rate — the finest welcome in the Garden City.",
-  phone: "+233 24 123 4567",
+  phone: "+233 54 590 3454",
   address: "Danyame Estates, Kumasi, Ghana",
   location: "Danyame Estates, Kumasi, Ashanti Region, Ghana",
   checkIn: "14:00",
@@ -12,11 +12,11 @@ export const HOTEL = {
 };
 
 export const NAV_LINKS = [
+  { href: "#about", label: "About" },
   { href: "#rooms", label: "Rooms" },
   { href: "#dining", label: "Dining" },
   { href: "#events", label: "Events" },
-  { href: "#pool", label: "Pool & Garden" },
-  { href: "#facilities", label: "Facilities" },
+  { href: "#gallery", label: "Gallery" },
   { href: "#location", label: "Location" },
 ];
 

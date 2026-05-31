@@ -11,11 +11,9 @@ export default function WelcomeSection() {
 
   useEffect(() => {
     if (!statsRef.current) return;
-    
     const statItems = statsRef.current.querySelectorAll('.stat-item');
-    
     gsap.set(statItems, { y: 30, opacity: 0 });
-    
+
     const trigger = ScrollTrigger.create({
       trigger: statsRef.current,
       start: 'top 85%',
@@ -25,8 +23,8 @@ export default function WelcomeSection() {
           y: 0,
           opacity: 1,
           duration: 0.8,
-          stagger: 0.15,
-          ease: 'power3.out'
+          stagger: 0.12,
+          ease: 'power3.out',
         });
       }
     });
@@ -35,43 +33,43 @@ export default function WelcomeSection() {
   }, []);
 
   return (
-    <section className="bg-cream py-32 lg:py-40 px-6 lg:px-12">
-      <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-16 lg:gap-24">
-        
+    <section id="about" className="bg-cream py-24 sm:py-32 lg:py-40 px-5 sm:px-8 lg:px-12">
+      <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-24">
+
         {/* Left Column */}
         <div className="lg:col-span-5">
-          <SectionLabel label="Overview" variant="light" />
-          <AnimatedText 
-            as="h2" 
-            className="font-cormorant text-[clamp(42px,5.5vw,80px)] text-ink leading-[1.1] tracking-[-0.015em] mb-12"
+          <SectionLabel label="Our Story" variant="light" />
+          <AnimatedText
+            as="h2"
+            className="font-cormorant text-[clamp(38px,5.5vw,80px)] text-ink leading-[1.08] tracking-[-0.015em] mb-8 sm:mb-12"
           >
             Who We Are
           </AnimatedText>
-          
+
           <div className="w-full aspect-[3/4] relative">
-            <ParallaxImage 
+            <ParallaxImage
               src="https://images.unsplash.com/photo-1551882547-ff40c63fe5fa?w=800&q=80"
               alt="Hotel Entrance"
-              speed={0.15}
+              speed={0.13}
             />
           </div>
         </div>
 
         {/* Right Column */}
         <div className="lg:col-span-7 lg:pt-24 flex flex-col">
-          <p className="font-cormorant italic text-[clamp(20px,2.2vw,28px)] text-ink font-light leading-relaxed mb-8">
+          <p className="font-cormorant italic text-[clamp(20px,2.2vw,28px)] text-ink font-light leading-relaxed mb-6 sm:mb-8">
             {HOTEL.description}
           </p>
-          
-          <p className="font-sans text-[15px] sm:text-[17px] text-ink-muted font-light leading-[1.7] mb-16 max-w-xl">
+
+          <p className="font-sans text-[14px] sm:text-[15px] text-ink-muted font-light leading-[1.75] mb-12 sm:mb-16 max-w-xl">
             Whether visiting for business or leisure, experience a true garden sanctuary. Our property offers a tranquil escape from the city bustle while remaining perfectly situated just minutes from Kumasi's key landmarks and airport.
           </p>
-          
-          {/* Stats Grid */}
-          <div ref={statsRef} className="grid grid-cols-2 md:grid-cols-4 gap-8 mb-16">
+
+          {/* Stats */}
+          <div ref={statsRef} className="grid grid-cols-2 md:grid-cols-4 gap-6 sm:gap-8 mb-12 sm:mb-16">
             {STATS.map((stat, i) => (
-              <div key={i} className="stat-item border-t border-border-light pt-6">
-                <div className="font-cormorant text-[clamp(48px,6vw,96px)] font-light text-emerald leading-none mb-2">
+              <div key={i} className="stat-item border-t border-border-light pt-5 sm:pt-6">
+                <div className="font-cormorant text-[clamp(44px,5.5vw,88px)] font-light text-emerald leading-none mb-2">
                   {stat.number}
                 </div>
                 <div className="font-sans text-[10px] uppercase tracking-[0.2em] text-ink-faint">
@@ -80,12 +78,12 @@ export default function WelcomeSection() {
               </div>
             ))}
           </div>
-          
+
           <div>
             <LiquidButton variant="outline-dark">Explore Rooms</LiquidButton>
           </div>
         </div>
-        
+
       </div>
     </section>
   );

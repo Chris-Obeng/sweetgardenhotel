@@ -23,11 +23,11 @@ export default function LiquidButton({ variant = 'outline-dark', children, class
     tlRef.current = gsap.timeline();
     tlRef.current.to(fillRef.current, {
       clipPath: 'ellipse(80% 45% at 50% 95%)',
-      duration: 0.2,
+      duration: 0.18,
       ease: 'power2.out',
     }).to(fillRef.current, {
       clipPath: 'ellipse(140% 140% at 50% 50%)',
-      duration: 0.3,
+      duration: 0.28,
       ease: 'power2.inOut',
     });
   };
@@ -37,7 +37,7 @@ export default function LiquidButton({ variant = 'outline-dark', children, class
     tlRef.current = gsap.timeline();
     tlRef.current.to(fillRef.current, {
       clipPath: 'ellipse(65% 18% at 50% -10%)',
-      duration: 0.4,
+      duration: 0.38,
       ease: 'power2.inOut',
     }).set(fillRef.current, {
       clipPath: 'ellipse(65% 18% at 50% 110%)'
@@ -70,15 +70,15 @@ export default function LiquidButton({ variant = 'outline-dark', children, class
       ref={buttonRef}
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
-      className={`inline-flex items-center justify-center overflow-hidden relative cursor-pointer select-none px-8 py-3.5 min-w-[160px] font-sans text-[11px] uppercase tracking-[0.18em] transition-colors duration-300 ${styles.container} ${className}`}
-      style={{ borderRadius: 0 }}
+      className={`inline-flex items-center justify-center overflow-hidden relative cursor-pointer select-none px-7 py-3 min-w-[150px] font-sans text-[11px] uppercase tracking-[0.18em] transition-colors duration-300 ${styles.container} ${className}`}
+      style={{ borderRadius: '6px' }}
       {...props}
     >
       <span className="relative z-10">{children}</span>
-      <span 
-        ref={fillRef} 
+      <span
+        ref={fillRef}
         className={`absolute inset-0 flex items-center justify-center z-20 ${styles.fill}`}
-        style={{ willChange: 'clip-path' }}
+        style={{ willChange: 'clip-path', borderRadius: '6px' }}
         aria-hidden="true"
       >
         {children}
