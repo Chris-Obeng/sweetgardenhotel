@@ -1,0 +1,523 @@
+- generic [ref=e2]:
+  - navigation [ref=e3]:
+    - link "Sweet Garden Hotel Sweet Garden Hotel" [ref=e5] [cursor=pointer]:
+      - /url: /
+      - generic [ref=e6]:
+        - img "Sweet Garden Hotel" [ref=e7]
+        - generic [ref=e8]:
+          - generic [ref=e9]: Sweet Garden
+          - generic [ref=e10]: Hotel
+    - generic [ref=e11]:
+      - link "Rooms" [ref=e12] [cursor=pointer]:
+        - /url: "#rooms"
+        - text: Rooms
+      - link "Dining" [ref=e13] [cursor=pointer]:
+        - /url: "#dining"
+        - text: Dining
+      - link "Events" [ref=e14] [cursor=pointer]:
+        - /url: "#events"
+        - text: Events
+      - link "Gallery" [ref=e15] [cursor=pointer]:
+        - /url: "#gallery"
+        - text: Gallery
+      - link "Location" [ref=e16] [cursor=pointer]:
+        - /url: "#location"
+        - text: Location
+      - link "About" [ref=e17] [cursor=pointer]:
+        - /url: "#about"
+        - text: About
+    - link "Book Now" [ref=e19] [cursor=pointer]:
+      - /url: tel:+233545903454
+      - button "Book Now" [ref=e20]:
+        - generic [ref=e21]: Book Now
+        - generic [ref=e22]: Book Now
+  - generic [ref=e23]:
+    - generic [ref=e24]:
+      - link "Rooms →" [ref=e25] [cursor=pointer]:
+        - /url: "#rooms"
+        - text: Rooms
+        - generic [ref=e26]: →
+      - link "Dining →" [ref=e27] [cursor=pointer]:
+        - /url: "#dining"
+        - text: Dining
+        - generic [ref=e28]: →
+      - link "Events →" [ref=e29] [cursor=pointer]:
+        - /url: "#events"
+        - text: Events
+        - generic [ref=e30]: →
+      - link "Gallery →" [ref=e31] [cursor=pointer]:
+        - /url: "#gallery"
+        - text: Gallery
+        - generic [ref=e32]: →
+      - link "Location →" [ref=e33] [cursor=pointer]:
+        - /url: "#location"
+        - text: Location
+        - generic [ref=e34]: →
+      - link "About →" [ref=e35] [cursor=pointer]:
+        - /url: "#about"
+        - text: About
+        - generic [ref=e36]: →
+    - generic [ref=e37]:
+      - link "Book Now · +233 54 590 3454" [ref=e38] [cursor=pointer]:
+        - /url: tel:+233545903454
+        - button "Book Now · +233 54 590 3454" [ref=e39]:
+          - generic [ref=e40]: Book Now · +233 54 590 3454
+          - generic [ref=e41]: Book Now · +233 54 590 3454
+      - generic [ref=e42]:
+        - paragraph [ref=e43]: Danyame Estates, Kumasi, Ghana
+        - paragraph [ref=e44]: reservations@sweetgardenhotel.com
+  - main [ref=e45]:
+    - generic [ref=e46]:
+      - img "Sweet Garden Hotel room" [ref=e47]
+      - img "Sweet Garden Hotel room" [ref=e48]
+      - img "Sweet Garden Hotel room" [ref=e49]
+      - generic [ref=e52]:
+        - generic [ref=e53]: Danyame · Kumasi · Ghana
+        - heading "A Garden Oasis" [level=1] [ref=e54]
+        - paragraph [ref=e55]: Where lush tropical gardens meet the finest hospitality in Kumasi.
+        - generic [ref=e56]:
+          - button "Reserve Your Stay" [ref=e57] [cursor=pointer]:
+            - generic [ref=e58]: Reserve Your Stay
+            - generic [ref=e59]: Reserve Your Stay
+          - button "Explore the Garden" [ref=e60] [cursor=pointer]:
+            - generic [ref=e61]: Explore the Garden
+            - generic [ref=e62]: Explore the Garden
+      - generic [ref=e63]:
+        - generic [ref=e64]:
+          - text: Outdoor Pool
+          - generic [ref=e65]: · Leisure
+        - generic [ref=e66]:
+          - text: Main Restaurant
+          - generic [ref=e67]: · Dining
+        - generic [ref=e68]:
+          - text: 5 Event Spaces
+          - generic [ref=e69]: · Events
+      - img [ref=e71]
+    - generic [ref=e74]:
+      - generic [ref=e75]:
+        - generic [ref=e76]: Our Story
+        - heading "Who We Are" [level=2] [ref=e77]:
+          - generic [ref=e79]: Who
+          - generic [ref=e81]: We
+          - generic [ref=e83]: Are
+        - img "Hotel Entrance" [ref=e86]
+      - generic [ref=e87]:
+        - paragraph [ref=e88]: Nestled in the serene Danyame Estates of Kumasi, Sweet Garden Hotel is a tropical sanctuary where lush gardens meet world-class hospitality. With 25 beautifully appointed guestrooms, 5 private event spaces, an outdoor pool, spa, and multiple dining venues, we offer premium comfort at an accessible rate — the finest welcome in the Garden City.
+        - paragraph [ref=e89]: Whether visiting for business or leisure, experience a true garden sanctuary. Our property offers a tranquil escape from the city bustle while remaining perfectly situated just minutes from Kumasi's key landmarks and airport.
+        - generic [ref=e90]:
+          - generic [ref=e91]:
+            - generic [ref=e92]: "25"
+            - generic [ref=e93]: Guest Rooms
+          - generic [ref=e94]:
+            - generic [ref=e95]: 10+
+            - generic [ref=e96]: Years of Excellence
+          - generic [ref=e97]:
+            - generic [ref=e98]: "5"
+            - generic [ref=e99]: Private Event Spaces
+          - generic [ref=e100]:
+            - generic [ref=e101]: "4.8"
+            - generic [ref=e102]: Guest Rating
+        - button "Explore Rooms" [ref=e104] [cursor=pointer]:
+          - generic [ref=e105]: Explore Rooms
+          - generic [ref=e106]: Explore Rooms
+    - generic [ref=e107]:
+      - generic [ref=e108]:
+        - generic [ref=e109]:
+          - generic [ref=e110]: Accommodations
+          - heading "Rooms & Suites" [level=2] [ref=e111]:
+            - generic [ref=e113]: Rooms
+            - generic [ref=e115]: "&"
+            - generic [ref=e117]: Suites
+        - button "View All" [ref=e119] [cursor=pointer]:
+          - generic [ref=e120]: View All
+          - generic [ref=e121]: View All
+      - generic [ref=e122]:
+        - generic [ref=e123]:
+          - generic [ref=e124]:
+            - img "Deluxe Double Room"
+            - generic [ref=e125]: 38 m²
+          - heading "Deluxe Double Room" [level=3] [ref=e126]
+          - paragraph [ref=e127]: A serene retreat with garden views, a plush king-size bed, rainfall shower, and premium bedding crafted for deep rest.
+          - generic [ref=e128]:
+            - generic [ref=e129]: Garden View
+            - generic [ref=e130]: King Bed
+            - generic [ref=e131]: Rainfall Shower
+            - generic [ref=e132]: Mini Bar
+            - generic [ref=e133]: +2 more
+        - generic [ref=e134]:
+          - generic [ref=e135]:
+            - img "Deluxe Twin Room"
+            - generic [ref=e136]: 38 m²
+          - heading "Deluxe Twin Room" [level=3] [ref=e137]
+          - paragraph [ref=e138]: Elegant and versatile — ideal for two guests travelling together, with twin beds and a calming garden outlook.
+          - generic [ref=e139]:
+            - generic [ref=e140]: Garden View
+            - generic [ref=e141]: Twin Beds
+            - generic [ref=e142]: Work Desk
+            - generic [ref=e143]: Rainfall Shower
+            - generic [ref=e144]: +2 more
+        - generic [ref=e145]:
+          - generic [ref=e146]:
+            - img "Executive Double Room"
+            - generic [ref=e147]: 48 m²
+          - heading "Executive Double Room" [level=3] [ref=e148]
+          - paragraph [ref=e149]: Our most refined room — elevated finishes, a king bed, pool or garden view, and dedicated concierge service.
+          - generic [ref=e150]:
+            - generic [ref=e151]: Pool or Garden View
+            - generic [ref=e152]: King Bed
+            - generic [ref=e153]: Premium Amenities
+            - generic [ref=e154]: Lounge Chair
+            - generic [ref=e155]: +2 more
+    - generic [ref=e156]:
+      - generic [ref=e157]:
+        - img "Outdoor Pool and Garden" [ref=e159]
+        - generic [ref=e161]: Open Daily · 6:00 am – 10:00 pm
+      - generic [ref=e163]:
+        - generic [ref=e164]: The Pool & Garden
+        - heading "The Heart of the Garden" [level=2] [ref=e165]:
+          - generic [ref=e167]: The
+          - generic [ref=e169]: Heart
+          - generic [ref=e171]: of
+          - generic [ref=e173]: the
+          - generic [ref=e175]: Garden
+        - paragraph [ref=e177]: Dive into the shimmering centrepiece of Sweet Garden. Our outdoor pool is surrounded by lush tropical plantings — equally inviting at sunrise for quiet morning laps and at dusk for drinks beneath the evening sky.
+        - generic [ref=e179]: Leisure · Relaxation · Drinks
+        - button "Discover the Pool" [ref=e181] [cursor=pointer]:
+          - generic [ref=e182]: Discover the Pool
+          - generic [ref=e183]: Discover the Pool
+    - generic [ref=e184]:
+      - generic [ref=e185]:
+        - generic [ref=e186]: Dining
+        - heading "Culinary Journeys" [level=2] [ref=e187]:
+          - generic [ref=e189]: Culinary
+          - generic [ref=e191]: Journeys
+        - paragraph [ref=e192]: From poolside grills to elegant Ghanaian dinners — every meal a destination.
+      - generic [ref=e194]:
+        - generic [ref=e195]:
+          - img [ref=e197]
+          - generic [ref=e202]:
+            - generic [ref=e203]: On-site Restaurant
+            - generic [ref=e204]: Sweet Garden Main Restaurant
+        - generic [ref=e205]:
+          - generic [ref=e206]: Breakfast · 7am – 10am
+          - generic [ref=e207]: Lunch · 12pm – 3pm
+          - generic [ref=e208]: Dinner · 6pm – 10pm
+      - generic [ref=e209]:
+        - generic [ref=e210]: GHANAIAN CLASSICS · INTERNATIONAL CUISINE · CHINESE KITCHEN · BBQ & GRILL · POOLSIDE BAR · CONTINENTAL BREAKFAST · FRESH SEAFOOD ·
+        - generic [ref=e211]: GHANAIAN CLASSICS · INTERNATIONAL CUISINE · CHINESE KITCHEN · BBQ & GRILL · POOLSIDE BAR · CONTINENTAL BREAKFAST · FRESH SEAFOOD ·
+      - generic [ref=e212]:
+        - generic [ref=e213] [cursor=pointer]:
+          - img "Main Restaurant" [ref=e215]
+          - generic [ref=e217]: All-Day Dining
+          - heading "Main Restaurant" [level=3] [ref=e218]
+          - paragraph [ref=e219]: Ghanaian specialties and international cuisine from breakfast through dinner, served in our signature dining room.
+        - generic [ref=e220] [cursor=pointer]:
+          - img "Poolside Bar & Grill" [ref=e222]
+          - generic [ref=e224]: Pool & Garden
+          - heading "Poolside Bar & Grill" [level=3] [ref=e225]
+          - paragraph [ref=e226]: BBQ, grills, spicy chicken wings, and cold Club beer served poolside under the open sky.
+        - generic [ref=e227] [cursor=pointer]:
+          - img "Chinese Kitchen" [ref=e229]
+          - generic [ref=e231]: Specialty Kitchen
+          - heading "Chinese Kitchen" [level=3] [ref=e232]
+          - paragraph [ref=e233]: "Authentic Chinese cuisine: dim sum, stir-fries, soups, and seasonal chef's specials."
+        - generic [ref=e234] [cursor=pointer]:
+          - img "Garden Terrace" [ref=e236]
+          - generic [ref=e238]: Garden Dining
+          - heading "Garden Terrace" [level=3] [ref=e239]
+          - paragraph [ref=e240]: Al fresco breakfast with fresh Ghanaian fruit, continental spreads, and the morning garden in bloom.
+    - generic [ref=e241]:
+      - generic [ref=e242]:
+        - generic [ref=e243]:
+          - generic [ref=e244]:
+            - generic [ref=e245]: Private Venues
+            - heading "Private Events & Gatherings" [level=2] [ref=e246]:
+              - generic [ref=e248]: Private
+              - generic [ref=e250]: Events
+              - generic [ref=e252]: "&"
+              - generic [ref=e254]: Gatherings
+          - button "View All Spaces" [ref=e256] [cursor=pointer]:
+            - generic [ref=e257]: View All Spaces
+            - generic [ref=e258]: View All Spaces
+        - generic [ref=e259]:
+          - paragraph [ref=e260]: Your milestones deserve a beautiful setting.
+          - paragraph [ref=e261]: From boardroom meetings and birthday celebrations to bridal showers and romantic proposal nights — our five private venues are dressed to impress. Beautifully styled, expertly catered, and priced to make luxury accessible. Because every occasion, big or small, deserves to feel extraordinary.
+      - generic [ref=e262]:
+        - generic [ref=e263]:
+          - generic [ref=e264]:
+            - img "Corporate Meetings"
+          - generic [ref=e265]: Business
+          - heading "Corporate Meetings" [level=3] [ref=e266]
+          - paragraph [ref=e267]: Private rooms with AV equipment, climate control, and dedicated catering service.
+        - generic [ref=e268]:
+          - generic [ref=e269]:
+            - img "Birthday Celebrations"
+          - generic [ref=e270]: Celebration
+          - heading "Birthday Celebrations" [level=3] [ref=e271]
+          - paragraph [ref=e272]: VIP rooms with karaoke, personalized décor, and signature menus.
+        - generic [ref=e273]:
+          - generic [ref=e274]:
+            - img "Bridal Showers"
+          - generic [ref=e275]: Celebration
+          - heading "Bridal Showers" [level=3] [ref=e276]
+          - paragraph [ref=e277]: Intimate garden or VIP lounge settings with floral arrangements.
+        - generic [ref=e278]:
+          - generic [ref=e279]:
+            - img "Proposal Nights"
+          - generic [ref=e280]: Romance
+          - heading "Proposal Nights" [level=3] [ref=e281]
+          - paragraph [ref=e282]: Candlelit pool terraces, bespoke menus, and floral arrangements for your perfect moment.
+        - generic [ref=e283]:
+          - generic [ref=e284]:
+            - img "Anniversary Dinners"
+          - generic [ref=e285]: Romance
+          - heading "Anniversary Dinners" [level=3] [ref=e286]
+          - paragraph [ref=e287]: Restaurant VIP room or front garden under the stars with butler service.
+        - generic [ref=e288]:
+          - generic [ref=e289]:
+            - img "Corporate Dinners"
+          - generic [ref=e290]: Business
+          - heading "Corporate Dinners" [level=3] [ref=e291]
+          - paragraph [ref=e292]: Private dining with international menus and dedicated butler service.
+      - generic [ref=e293]:
+        - generic [ref=e294]:
+          - generic [ref=e296]: Full dining service
+          - generic [ref=e297]:
+            - generic [ref=e298]: "01"
+            - heading "Restaurant VIP Room" [level=3] [ref=e299]
+        - generic [ref=e300]:
+          - generic [ref=e302]: Outdoor tropical setting
+          - generic [ref=e303]:
+            - generic [ref=e304]: "02"
+            - heading "Front Garden" [level=3] [ref=e305]
+    - generic [ref=e307]:
+      - generic [ref=e308]:
+        - generic [ref=e309]: Facilities
+        - heading "Everything You Need" [level=2] [ref=e310]:
+          - generic [ref=e312]: Everything
+          - generic [ref=e314]: You
+          - generic [ref=e316]: Need
+        - paragraph [ref=e317]: Affordable luxury that includes everything — for a premium experience at an accessible rate.
+      - generic [ref=e318]:
+        - generic [ref=e319]:
+          - img [ref=e321]
+          - heading "Outdoor Pool" [level=3] [ref=e325]
+          - paragraph [ref=e326]: Shimmering centrepiece of the estate, open daily 6am–10pm.
+        - generic [ref=e327]:
+          - img [ref=e329]
+          - heading "Spa & Massage" [level=3] [ref=e332]
+          - paragraph [ref=e333]: Swedish, deep tissue, and local traditional treatments.
+        - generic [ref=e334]:
+          - img [ref=e336]
+          - heading "Fitness Center" [level=3] [ref=e342]
+          - paragraph [ref=e343]: Modern gym with cardio and weights, open 24 hours.
+        - generic [ref=e344]:
+          - img [ref=e346]
+          - heading "Pool Table & Games" [level=3] [ref=e348]
+          - paragraph [ref=e349]: Full-size pool table and table tennis available all day.
+        - generic [ref=e350]:
+          - img [ref=e352]
+          - heading "Free Parking" [level=3] [ref=e356]
+          - paragraph [ref=e357]: Complimentary secure parking within the estate grounds.
+        - generic [ref=e358]:
+          - img [ref=e360]
+          - heading "Free WiFi" [level=3] [ref=e364]
+          - paragraph [ref=e365]: Superfast WiFi in all rooms and throughout the grounds.
+        - generic [ref=e366]:
+          - img [ref=e368]
+          - heading "24hr Room Service" [level=3] [ref=e373]
+          - paragraph [ref=e374]: Full restaurant menu delivered to your room any time.
+        - generic [ref=e375]:
+          - img [ref=e377]
+          - heading "Laundry & Dry Cleaning" [level=3] [ref=e381]
+          - paragraph [ref=e382]: Same-day service on request at the front desk.
+    - generic [ref=e383]:
+      - generic [ref=e385]:
+        - generic [ref=e386]: Location
+        - heading "At the Centre of Everything" [level=2] [ref=e387]:
+          - generic [ref=e389]: At
+          - generic [ref=e391]: the
+          - generic [ref=e393]: Centre
+          - generic [ref=e395]: of
+          - generic [ref=e397]: Everything
+        - paragraph [ref=e398]: Perfectly positioned on Circular Road in Ridge Danyame, Kumasi, close to the city's key landmarks and Prempeh I International Airport, yet tucked away in a serene tropical setting.
+        - generic [ref=e399]:
+          - img [ref=e400]
+          - generic [ref=e402]:
+            - generic [ref=e403]: Prempeh I International Airport
+            - text: 10 minutes · 6.5 km away
+        - generic [ref=e404]:
+          - generic [ref=e405]:
+            - generic [ref=e406]: Kumasi City Mall
+            - generic [ref=e407]: 5 min
+          - generic [ref=e408]:
+            - generic [ref=e409]: Baba Yara Stadium
+            - generic [ref=e410]: 10 min
+          - generic [ref=e411]:
+            - generic [ref=e412]: Adum Business District
+            - generic [ref=e413]: 12 min
+          - generic [ref=e414]:
+            - generic [ref=e415]: Kumasi Golf Club
+            - generic [ref=e416]: 8 min
+          - generic [ref=e417]:
+            - generic [ref=e418]: Ghana Armed Forces Museum
+            - generic [ref=e419]: 5 min
+          - generic [ref=e420]:
+            - generic [ref=e421]: Kejetia Market
+            - generic [ref=e422]: 15 min
+        - link "+233 24 088 1143" [ref=e423] [cursor=pointer]:
+          - /url: tel:+233240881143
+          - img [ref=e425]
+          - text: +233 24 088 1143
+      - generic [ref=e428]:
+        - iframe [ref=e430]:
+          
+        - generic [ref=e432]:
+          - generic [ref=e433]:
+            - generic [ref=e434]: Sweet Garden Hotel & Restaurant
+            - generic [ref=e435]: Circular Rd, Ridge Danyame, Kumasi, Ghana
+          - generic [ref=e436]:
+            - img [ref=e437]
+            - text: 4.2 · 1,455 reviews
+    - generic [ref=e439]:
+      - generic [ref=e440]:
+        - generic [ref=e441]: Guest Reviews
+        - heading "What Our Guests Say" [level=2] [ref=e442]:
+          - generic [ref=e444]: What
+          - generic [ref=e446]: Our
+          - generic [ref=e448]: Guests
+          - generic [ref=e450]: Say
+      - generic [ref=e451]:
+        - generic [ref=e452]:
+          - generic [ref=e453]: "\""
+          - paragraph [ref=e454]: A garden oasis. My new go-to place in Kumasi. Great service and fantastic food. Nothing like an ice cold poolside drink with spicy chicken wings.
+          - generic [ref=e455]:
+            - generic [ref=e456]: David R.
+            - generic [ref=e457]: TripAdvisor
+        - generic [ref=e458]:
+          - generic [ref=e459]: "\""
+          - paragraph [ref=e460]: What a decent, serene and tranquil atmosphere. Perfect lights, a decent pool, an excellent place for events. The staff were gentle and hospitable.
+          - generic [ref=e461]:
+            - generic [ref=e462]: Kwame A.
+            - generic [ref=e463]: Google Reviews
+        - generic [ref=e464]:
+          - generic [ref=e465]: "\""
+          - paragraph [ref=e466]: Beautiful and clean environment, sparkling pool, nice food and friendly service. We loved everything about the hotel and will recommend to all visitors in Kumasi.
+          - generic [ref=e467]:
+            - generic [ref=e468]: Akosua & Family
+            - generic [ref=e469]: Booking.com
+    - generic [ref=e471]:
+      - generic [ref=e472]:
+        - generic [ref=e473]:
+          - generic [ref=e474]: Gallery
+          - heading "A Glimpse Inside" [level=2] [ref=e475]:
+            - generic [ref=e477]: A
+            - generic [ref=e479]: Glimpse
+            - generic [ref=e481]: Inside
+        - paragraph [ref=e482]: Every corner of Sweet Garden tells a story of warmth and beauty.
+      - generic [ref=e483]:
+        - generic [ref=e484]:
+          - img "Sweet Garden Hotel pool" [ref=e485]
+          - generic [ref=e487]: Outdoor Pool
+        - generic [ref=e488]:
+          - img "Executive Suite" [ref=e489]
+          - generic [ref=e491]: Executive Suite
+        - generic [ref=e492]:
+          - img "Sweet Garden dining spread" [ref=e493]
+          - generic [ref=e495]: Signature Dining
+        - generic [ref=e496]:
+          - img "Private garden dining setup" [ref=e497]
+          - generic [ref=e499]: Garden Gatherings
+        - generic [ref=e500]:
+          - img "Twin guest room" [ref=e501]
+          - generic [ref=e503]: Twin Guest Room
+        - generic [ref=e504]:
+          - img "Private dining room" [ref=e505]
+          - generic [ref=e507]: Private Dining
+  - contentinfo [ref=e508]:
+    - generic [ref=e509]:
+      - generic [ref=e510]:
+        - generic [ref=e511]:
+          - generic [ref=e512]: Sweet Garden
+          - generic [ref=e513]: Hotel · Kumasi, Ghana
+          - paragraph [ref=e514]: A tropical garden oasis in the heart of Kumasi's Danyame Estates.
+        - generic [ref=e515]:
+          - link "About" [ref=e516] [cursor=pointer]:
+            - /url: "#about"
+          - link "Rooms" [ref=e517] [cursor=pointer]:
+            - /url: "#rooms"
+          - link "Dining" [ref=e518] [cursor=pointer]:
+            - /url: "#dining"
+          - link "Events" [ref=e519] [cursor=pointer]:
+            - /url: "#events"
+          - link "Gallery" [ref=e520] [cursor=pointer]:
+            - /url: "#gallery"
+          - link "Location" [ref=e521] [cursor=pointer]:
+            - /url: "#location"
+          - link "Pool & Garden" [ref=e522] [cursor=pointer]:
+            - /url: "#pool"
+          - link "Facilities" [ref=e523] [cursor=pointer]:
+            - /url: "#facilities"
+      - generic [ref=e524]:
+        - generic [ref=e525]:
+          - heading "Get in Touch" [level=4] [ref=e526]
+          - generic [ref=e527]:
+            - link "+233 54 590 3454" [ref=e528] [cursor=pointer]:
+              - /url: tel:+233545903454
+              - img [ref=e529]
+              - text: +233 54 590 3454
+            - link "reservations@sweetgardenhotel.com" [ref=e531] [cursor=pointer]:
+              - /url: mailto:reservations@sweetgardenhotel.com
+              - img [ref=e532]
+              - text: reservations@sweetgardenhotel.com
+            - generic [ref=e535]:
+              - img [ref=e536]
+              - text: Danyame Estates, Kumasi, Ghana
+          - button "Book a Room" [ref=e540] [cursor=pointer]:
+            - generic [ref=e541]: Book a Room
+            - generic [ref=e542]: Book a Room
+        - generic [ref=e543]:
+          - heading "Hours" [level=4] [ref=e544]
+          - generic [ref=e545]:
+            - generic [ref=e546]:
+              - generic [ref=e547]: Check-in
+              - generic [ref=e548]: From 14:00
+            - generic [ref=e549]:
+              - generic [ref=e550]: Check-out
+              - generic [ref=e551]: By 11:30
+            - generic [ref=e552]:
+              - generic [ref=e553]: Front Desk
+              - generic [ref=e554]: 24 Hours
+            - generic [ref=e555]:
+              - generic [ref=e556]: Room Service
+              - generic [ref=e557]: 24 Hours
+            - generic [ref=e558]:
+              - generic [ref=e559]: Pool
+              - generic [ref=e560]: 6:00 – 22:00
+        - generic [ref=e561]:
+          - heading "Follow Us" [level=4] [ref=e562]
+          - generic [ref=e563]:
+            - link "Instagram @sweetgardenhotel" [ref=e564] [cursor=pointer]:
+              - /url: "#"
+              - generic [ref=e565]: Instagram
+              - generic [ref=e566]: "@sweetgardenhotel"
+            - link "Facebook Sweet Garden Hotel" [ref=e567] [cursor=pointer]:
+              - /url: "#"
+              - generic [ref=e568]: Facebook
+              - generic [ref=e569]: Sweet Garden Hotel
+            - link "TikTok @sweetgarden.gh" [ref=e570] [cursor=pointer]:
+              - /url: "#"
+              - generic [ref=e571]: TikTok
+              - generic [ref=e572]: "@sweetgarden.gh"
+            - link "YouTube Sweet Garden Hotel" [ref=e573] [cursor=pointer]:
+              - /url: "#"
+              - generic [ref=e574]: YouTube
+              - generic [ref=e575]: Sweet Garden Hotel
+            - link "LinkedIn Sweet Garden Hotel" [ref=e576] [cursor=pointer]:
+              - /url: "#"
+              - generic [ref=e577]: LinkedIn
+              - generic [ref=e578]: Sweet Garden Hotel
+      - generic [ref=e579]:
+        - generic [ref=e580]: © 2026 Sweet Garden Hotel · All Rights Reserved · Privacy Policy · Terms of Service
+        - button "Scroll to top" [ref=e581]:
+          - img [ref=e582]
