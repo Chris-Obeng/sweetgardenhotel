@@ -151,23 +151,18 @@ export default function EventsSection() {
       </div>
 
       {/* Private Spaces grid */}
-      <div ref={spacesGridRef} className="px-5 sm:px-8 lg:px-12 max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 gap-5 sm:gap-6 lg:gap-8">
+      <div ref={spacesGridRef} className="px-5 sm:px-8 lg:px-12 max-w-4xl mx-auto grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
         {PRIVATE_SPACES.map((space, i) => (
-          <div key={i} className="space-card group cursor-pointer relative overflow-hidden bg-forest-mid aspect-[16/9]">
-            <img
-              src={space.imagePath}
-              alt={space.name}
-              className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-forest/90 via-forest/40 to-transparent" />
-            <div className="absolute inset-0 p-5 sm:p-8 flex flex-col justify-end">
-              <div className="font-sans text-[10px] uppercase tracking-[0.2em] text-emerald-pale mb-2">
-                {space.highlight}
-              </div>
-              <h3 className="font-cormorant text-2xl sm:text-[28px] mb-2">{space.name}</h3>
-              <div className="font-sans text-[10px] uppercase tracking-wider text-white/80 border border-white/20 inline-block px-3 py-1 w-max">
-                Up to {space.capacity} Guests
-              </div>
+          <div key={i} className="space-card group relative border-l border-gold/40 pl-5 sm:pl-6 py-2 transition-colors duration-500 hover:border-gold">
+            <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-gold/50 to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
+            <div className="font-sans text-[9px] uppercase tracking-[0.24em] text-emerald-pale mb-2">
+              {space.highlight}
+            </div>
+            <div className="flex items-baseline gap-3">
+              <span className="font-cormorant text-lg sm:text-xl leading-none text-white/25">
+                {String(i + 1).padStart(2, '0')}
+              </span>
+              <h3 className="font-cormorant text-2xl sm:text-[30px] leading-tight">{space.name}</h3>
             </div>
           </div>
         ))}

@@ -2,8 +2,8 @@ import { useEffect, useRef } from 'react';
 import { gsap, ScrollTrigger } from '@/lib/gsap-config';
 import AnimatedText from '../shared/AnimatedText';
 import SectionLabel from '../shared/SectionLabel';
-import { HOTEL, LOCATION_LANDMARKS } from '@/lib/constants';
-import { Plane, MapPin, Phone } from 'lucide-react';
+import { LOCATION_LANDMARKS } from '@/lib/constants';
+import { Phone, Plane, Star } from 'lucide-react';
 
 export default function LocationSection() {
   const landmarksRef = useRef<HTMLDivElement>(null);
@@ -24,9 +24,9 @@ export default function LocationSection() {
           opacity: 1,
           duration: 0.75,
           stagger: 0.08,
-          ease: 'power3.out'
+          ease: 'power3.out',
         });
-      }
+      },
     });
 
     return () => trigger.kill();
@@ -34,8 +34,6 @@ export default function LocationSection() {
 
   return (
     <section id="location" className="flex flex-col lg:flex-row min-h-screen">
-
-      {/* Left Side (Dark) */}
       <div className="w-full lg:w-1/2 bg-forest py-24 sm:py-32 lg:py-40 px-5 sm:px-10 lg:px-16 xl:px-24 flex flex-col justify-center">
         <div className="max-w-xl">
           <SectionLabel label="Location" variant="dark" />
@@ -47,10 +45,9 @@ export default function LocationSection() {
           </AnimatedText>
 
           <p className="font-sans text-[14px] sm:text-[15px] text-white/65 font-light leading-[1.75] mb-8 sm:mb-12">
-            Perfectly positioned in Kumasi's Danyame Estates — close to the city's key landmarks and Prempeh I International Airport, yet tucked away in a serene tropical setting.
+            Perfectly positioned on Circular Road in Ridge Danyame, Kumasi, close to the city's key landmarks and Prempeh I International Airport, yet tucked away in a serene tropical setting.
           </p>
 
-          {/* Airport callout */}
           <div className="bg-forest-mid p-4 sm:p-6 border-l-2 border-gold mb-8 sm:mb-12 flex items-center gap-4">
             <Plane className="text-gold shrink-0" size={22} />
             <div className="font-sans text-[11px] uppercase tracking-[0.15em] text-white">
@@ -59,7 +56,6 @@ export default function LocationSection() {
             </div>
           </div>
 
-          {/* Landmarks */}
           <div ref={landmarksRef} className="space-y-4 sm:space-y-5 mb-10 sm:mb-14">
             {LOCATION_LANDMARKS.slice(1, 7).map((landmark, i) => (
               <div key={i} className="landmark-item flex items-center justify-between border-l-2 border-emerald/50 pl-4">
@@ -71,36 +67,48 @@ export default function LocationSection() {
             ))}
           </div>
 
-          {/* Phone CTA */}
           <a
-            href={`tel:${HOTEL.phone.replace(/\s/g, '')}`}
+            href="tel:+233240881143"
             className="inline-flex items-center gap-3 font-sans text-[13px] text-gold hover:text-white transition-colors duration-200 group"
           >
             <div className="w-9 h-9 rounded-full border border-gold/40 flex items-center justify-center group-hover:border-white/40 transition-colors">
               <Phone size={15} strokeWidth={1.5} />
             </div>
-            {HOTEL.phone}
+            +233 24 088 1143
           </a>
         </div>
       </div>
 
-      {/* Right Side (Image) */}
-      <div className="w-full lg:w-1/2 h-[55vw] sm:h-[50vw] lg:h-auto relative bg-cream">
-        <img
-          src="https://images.unsplash.com/photo-1527631746610-bca00a040d60?w=1200&q=80"
-          alt="Kumasi, Ghana"
-          className="absolute inset-0 w-full h-full object-cover opacity-80"
-        />
-        <div className="absolute inset-0 bg-forest/20" />
-
-        {/* Pin overlay */}
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 flex flex-col items-center">
-          <div className="w-12 h-12 sm:w-16 sm:h-16 bg-forest rounded-full flex items-center justify-center text-gold shadow-2xl mb-3 relative z-10 animate-bounce">
-            <MapPin size={22} />
+      <div className="w-full lg:w-1/2 bg-forest-mid p-5 sm:p-8 lg:p-10 flex items-center">
+        <div className="w-full bg-forest border border-white/10 shadow-2xl">
+          <div className="relative h-[360px] sm:h-[450px] lg:h-[620px] overflow-hidden">
+            <iframe
+              title="Sweet Garden Hotel & Restaurant map"
+              src="https://maps.google.com/maps?q=6.671489,-1.629873&z=16&output=embed"
+              width="100%"
+              height="100%"
+              style={{ border: 0 }}
+              allowFullScreen
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+              className="absolute inset-0 h-full w-full grayscale-[20%]"
+            />
           </div>
-          <div className="bg-forest px-4 sm:px-6 py-2 sm:py-3 shadow-xl">
-            <div className="font-cormorant text-lg sm:text-xl text-white text-center">Sweet Garden Hotel</div>
-            <div className="font-sans text-[8px] sm:text-[9px] uppercase tracking-widest text-gold text-center mt-0.5">Danyame Estates · Kumasi</div>
+          <div className="px-5 sm:px-7 py-5 sm:py-6 border-t border-white/10">
+            <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4">
+              <div>
+                <div className="font-cormorant text-2xl sm:text-3xl text-white leading-tight">
+                  Sweet Garden Hotel & Restaurant
+                </div>
+                <div className="font-sans text-[11px] uppercase tracking-[0.16em] text-white/50 mt-2">
+                  Circular Rd, Ridge Danyame, Kumasi, Ghana
+                </div>
+              </div>
+              <div className="flex items-center gap-2 text-gold font-sans text-[11px] uppercase tracking-[0.14em] shrink-0">
+                <Star size={14} fill="currentColor" strokeWidth={1.5} />
+                4.2 · 1,455 reviews
+              </div>
+            </div>
           </div>
         </div>
       </div>

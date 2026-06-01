@@ -43,8 +43,6 @@ export const EVENTS = [
 ];
 
 export const PRIVATE_SPACES = [
-  { name: "Pool VIP Room", capacity: 50, highlight: "Direct pool access", imagePath: "/events/IMG-20260527-WA0003.jpg" },
-  { name: "Rooftop VIP Room", capacity: 40, highlight: "Panoramic city views", imagePath: "/events/IMG-20260527-WA0013.jpg" },
   { name: "Restaurant VIP Room", capacity: 60, highlight: "Full dining service", imagePath: "/events/IMG-20260527-WA0014.jpg" },
   { name: "Front Garden", capacity: 100, highlight: "Outdoor tropical setting", imagePath: "/events/IMG-20260527-WA0033.jpg" },
 ];

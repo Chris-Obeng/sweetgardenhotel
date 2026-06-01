@@ -98,12 +98,12 @@ export default function GallerySection() {
         {/* Grid — desktop masonry, mobile stack */}
         <div
           ref={gridRef}
-          className="columns-1 sm:columns-2 lg:columns-3 gap-3 lg:gap-4"
+          className="max-w-4xl mx-auto columns-2 lg:columns-3 gap-2.5 lg:gap-3"
         >
           {GALLERY_IMAGES.map((img, i) => (
             <div
               key={i}
-              className="gallery-item overflow-hidden relative group break-inside-avoid mb-3 lg:mb-4 bg-forest"
+              className="gallery-item overflow-hidden relative group break-inside-avoid mb-2.5 lg:mb-3 bg-forest"
             >
               <img
                 src={img.src}
