@@ -46,18 +46,24 @@ export default function WelcomeSection() {
             Who We Are
           </AnimatedText>
 
+          <p className="lg:hidden font-cormorant italic text-[clamp(20px,2.2vw,28px)] text-ink font-light leading-relaxed mb-8">
+            {HOTEL.description}
+          </p>
+
           <div className="w-full aspect-[3/4] relative">
             <ParallaxImage
               src="https://images.unsplash.com/photo-1551882547-ff40c63fe5fa?w=800&q=80"
               alt="Hotel Entrance"
               speed={0.13}
+              className="h-full"
+              containerClassName="h-full w-full"
             />
           </div>
         </div>
 
         {/* Right Column */}
         <div className="lg:col-span-7 lg:pt-24 flex flex-col">
-          <p className="font-cormorant italic text-[clamp(20px,2.2vw,28px)] text-ink font-light leading-relaxed mb-6 sm:mb-8">
+          <p className="hidden lg:block font-cormorant italic text-[clamp(20px,2.2vw,28px)] text-ink font-light leading-relaxed mb-6 sm:mb-8">
             {HOTEL.description}
           </p>
 

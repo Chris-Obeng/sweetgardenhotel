@@ -129,7 +129,7 @@ export default function EventsSection() {
       {/* Drag carousel */}
       <div
         ref={carouselRef}
-        className="flex overflow-x-scroll no-scrollbar cursor-grab pl-5 sm:pl-8 lg:pl-12 pr-5 sm:pr-8 lg:pr-32 gap-5 mb-20 sm:mb-28 snap-x snap-mandatory pb-6"
+        className="flex overflow-x-scroll no-scrollbar cursor-grab pl-8 sm:pl-12 lg:pl-20 xl:pl-28 pr-5 sm:pr-8 lg:pr-32 gap-5 mb-20 sm:mb-28 snap-x snap-mandatory scroll-pl-8 sm:scroll-pl-12 lg:scroll-pl-20 xl:scroll-pl-28 pb-6"
         style={{ scrollSnapType: 'x mandatory' }}
       >
         {EVENTS.map((event) => (

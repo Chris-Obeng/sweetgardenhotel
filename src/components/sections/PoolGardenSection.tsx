@@ -48,7 +48,7 @@ export default function PoolGardenSection() {
       {/* Left — Image */}
       <div className="w-full lg:w-[58%] h-[55vw] sm:h-[45vw] lg:h-auto relative">
         <ParallaxImage
-          src="https://images.unsplash.com/photo-1571003123894-1f0594d2b5d9?w=1200&q=85"
+          src="/pool/pool.png"
           alt="Outdoor Pool and Garden"
           speed={0.12}
           className="h-full"

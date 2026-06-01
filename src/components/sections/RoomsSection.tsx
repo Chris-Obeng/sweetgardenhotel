@@ -89,7 +89,7 @@ export default function RoomsSection() {
       {/* Carousel */}
       <div
         ref={scrollContainerRef}
-        className="flex overflow-x-scroll no-scrollbar cursor-grab pl-5 sm:pl-8 lg:pl-12 pr-5 sm:pr-8 gap-5 sm:gap-6 pb-10 snap-x snap-mandatory"
+        className="flex overflow-x-scroll no-scrollbar cursor-grab pl-8 sm:pl-12 lg:pl-20 xl:pl-28 pr-5 sm:pr-8 gap-5 sm:gap-6 pb-10 snap-x snap-mandatory scroll-pl-8 sm:scroll-pl-12 lg:scroll-pl-20 xl:scroll-pl-28"
         style={{ scrollSnapType: 'x mandatory' }}
       >
         {ROOMS.map((room) => (

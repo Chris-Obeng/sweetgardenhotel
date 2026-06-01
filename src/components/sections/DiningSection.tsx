@@ -6,10 +6,10 @@ import { DINING } from '@/lib/constants';
 import { UtensilsCrossed } from 'lucide-react';
 
 const images = [
-  "https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=800&q=80",
-  "https://images.unsplash.com/photo-1540541338537-71cf5b4e4f73?w=800&q=80",
-  "https://images.unsplash.com/photo-1563245372-f21724e3856d?w=800&q=80",
-  "https://images.unsplash.com/photo-1600891964599-f61ba0e24092?w=800&q=80",
+  "/dining/food2.webp",
+  "/dining/IMG-20260527-WA0031.jpg",
+  "/dining/food.webp",
+  "/dining/IMG-20260527-WA0022.jpg",
 ];
 
 const marqueeText = "GHANAIAN CLASSICS · INTERNATIONAL CUISINE · CHINESE KITCHEN · BBQ & GRILL · POOLSIDE BAR · CONTINENTAL BREAKFAST · FRESH SEAFOOD · ";

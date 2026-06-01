@@ -9,10 +9,10 @@ export default function HotelLogo({
   nameColor = 'text-white',
   subColor = 'text-gold',
   className = '',
-  size = 38,
+  size = 44,
 }: HotelLogoProps) {
   return (
-    <div className={`inline-flex items-center gap-2.5 ${className}`}>
+    <div className={`inline-flex items-center gap-3 ${className}`}>
       <img
         src="/hotel-logo.png"
         alt="Sweet Garden Hotel"

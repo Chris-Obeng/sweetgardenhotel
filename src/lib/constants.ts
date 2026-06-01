@@ -21,9 +21,9 @@ export const NAV_LINKS = [
 ];
 
 export const ROOMS = [
-  { id: 1, name: "Deluxe Double Room", description: "A serene retreat with garden views, a plush king-size bed, rainfall shower, and premium bedding crafted for deep rest.", size: 38, guests: 2, features: ["Garden View", "King Bed", "Rainfall Shower", "Mini Bar", "Smart TV", "Free WiFi"], imagePath: "https://images.unsplash.com/photo-1631049307264-da0ec9d70304?w=800&q=80" },
-  { id: 2, name: "Deluxe Twin Room", description: "Elegant and versatile — ideal for two guests travelling together, with twin beds and a calming garden outlook.", size: 38, guests: 2, features: ["Garden View", "Twin Beds", "Work Desk", "Rainfall Shower", "Smart TV", "Free WiFi"], imagePath: "https://images.unsplash.com/photo-1611892440504-42a792e24d32?w=800&q=80" },
-  { id: 3, name: "Executive Double Room", description: "Our most refined room — elevated finishes, a king bed, pool or garden view, and dedicated concierge service.", size: 48, guests: 2, features: ["Pool or Garden View", "King Bed", "Premium Amenities", "Lounge Chair", "24hr Room Service", "Free WiFi"], imagePath: "https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?w=800&q=80" },
+  { id: 1, name: "Deluxe Double Room", description: "A serene retreat with garden views, a plush king-size bed, rainfall shower, and premium bedding crafted for deep rest.", size: 38, guests: 2, features: ["Garden View", "King Bed", "Rainfall Shower", "Mini Bar", "Smart TV", "Free WiFi"], imagePath: "/rooms/executive_double.avif" },
+  { id: 2, name: "Deluxe Twin Room", description: "Elegant and versatile — ideal for two guests travelling together, with twin beds and a calming garden outlook.", size: 38, guests: 2, features: ["Garden View", "Twin Beds", "Work Desk", "Rainfall Shower", "Smart TV", "Free WiFi"], imagePath: "/rooms/twin.jpg" },
+  { id: 3, name: "Executive Double Room", description: "Our most refined room — elevated finishes, a king bed, pool or garden view, and dedicated concierge service.", size: 48, guests: 2, features: ["Pool or Garden View", "King Bed", "Premium Amenities", "Lounge Chair", "24hr Room Service", "Free WiFi"], imagePath: "/rooms/executive_suite.avif" },
 ];
 
 export const DINING = [
@@ -34,19 +34,19 @@ export const DINING = [
 ];
 
 export const EVENTS = [
-  { id: 1, title: "Corporate Meetings", category: "Business", description: "Private rooms with AV equipment, climate control, and dedicated catering service.", imagePath: "https://images.unsplash.com/photo-1497366216548-37526070297c?w=800&q=80" },
-  { id: 2, title: "Birthday Celebrations", category: "Celebration", description: "VIP rooms with karaoke, personalized décor, and signature menus.", imagePath: "https://images.unsplash.com/photo-1530103862676-de8c9debad1d?w=800&q=80" },
-  { id: 3, title: "Bridal Showers", category: "Celebration", description: "Intimate garden or VIP lounge settings with floral arrangements.", imagePath: "https://images.unsplash.com/photo-1519225421980-715cb0215aed?w=800&q=80" },
-  { id: 4, title: "Proposal Nights", category: "Romance", description: "Candlelit pool terraces, bespoke menus, and floral arrangements for your perfect moment.", imagePath: "https://images.unsplash.com/photo-1529543544282-ea669407fca3?w=800&q=80" },
-  { id: 5, title: "Anniversary Dinners", category: "Romance", description: "Restaurant VIP room or front garden under the stars with butler service.", imagePath: "https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=800&q=80" },
-  { id: 6, title: "Corporate Dinners", category: "Business", description: "Private dining with international menus and dedicated butler service.", imagePath: "https://images.unsplash.com/photo-1466978913421-dad2ebd01d17?w=800&q=80" },
+  { id: 1, title: "Corporate Meetings", category: "Business", description: "Private rooms with AV equipment, climate control, and dedicated catering service.", imagePath: "/events/IMG-20260527-WA0033.jpg" },
+  { id: 2, title: "Birthday Celebrations", category: "Celebration", description: "VIP rooms with karaoke, personalized décor, and signature menus.", imagePath: "/events/IMG-20260527-WA0014.jpg" },
+  { id: 3, title: "Bridal Showers", category: "Celebration", description: "Intimate garden or VIP lounge settings with floral arrangements.", imagePath: "/events/IMG-20260527-WA0013.jpg" },
+  { id: 4, title: "Proposal Nights", category: "Romance", description: "Candlelit pool terraces, bespoke menus, and floral arrangements for your perfect moment.", imagePath: "/events/IMG-20260527-WA0003.jpg" },
+  { id: 5, title: "Anniversary Dinners", category: "Romance", description: "Restaurant VIP room or front garden under the stars with butler service.", imagePath: "/events/IMG-20260527-WA0033.jpg" },
+  { id: 6, title: "Corporate Dinners", category: "Business", description: "Private dining with international menus and dedicated butler service.", imagePath: "/events/IMG-20260527-WA0014.jpg" },
 ];
 
 export const PRIVATE_SPACES = [
-  { name: "Pool VIP Room", capacity: 50, highlight: "Direct pool access", imagePath: "https://images.unsplash.com/photo-1571896349842-33c89424de2d?w=800&q=80" },
-  { name: "Rooftop VIP Room", capacity: 40, highlight: "Panoramic city views", imagePath: "https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?w=800&q=80" },
-  { name: "Restaurant VIP Room", capacity: 60, highlight: "Full dining service", imagePath: "https://images.unsplash.com/photo-1559329007-40df8a9345d8?w=800&q=80" },
-  { name: "Front Garden", capacity: 100, highlight: "Outdoor tropical setting", imagePath: "https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=800&q=80" },
+  { name: "Pool VIP Room", capacity: 50, highlight: "Direct pool access", imagePath: "/events/IMG-20260527-WA0003.jpg" },
+  { name: "Rooftop VIP Room", capacity: 40, highlight: "Panoramic city views", imagePath: "/events/IMG-20260527-WA0013.jpg" },
+  { name: "Restaurant VIP Room", capacity: 60, highlight: "Full dining service", imagePath: "/events/IMG-20260527-WA0014.jpg" },
+  { name: "Front Garden", capacity: 100, highlight: "Outdoor tropical setting", imagePath: "/events/IMG-20260527-WA0033.jpg" },
 ];
 
 export const FACILITIES = [
